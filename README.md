@@ -1,2 +1,14 @@
 # Projek-Akhir-Rumah-Sakit
-Kelompokm 6 Projek Akhir ASD Rumah Sakit
+Kelompok 6 Projek Akhir ASD Rumah Sakit
+
+	Seiring dengan era digital yang terus berkembang maka berbagai sektor bidang juga harus dapat mengikuti arus tersebut. Begitupun dengan bidang kesehatan, dunia kesehatan tidak terlepas dari teknologi komputer dan teknologi informasi. Pengolahan data medis yang dahulu dilakukan secara manual, saat ini dibuat menjadi otomatis dengan sistem informasi untuk mempercepat proses kerja para tenaga medis dalam memperoleh data. Pengolahan data secara manual dirasa masi kurang efisien karena memakan waktu yang lama dan juga memungkinkan terjadinya human error. Ditambah lagi dengan jumlah pasien yang relatif banyak per hari dan tenaga administrasi Rumah Sakit yang terbatas dapat menyebabkan adanya duplikasi data rekam medis pasien yang tidak terkontrol, sehingga kemungkinan terjadinya kesalahan sangat besar.
+  
+  Rumah sakit Sebagai salah satu institusi pelayanan umum yang memiliki tugas penting dalam menyelamatkan nyawa pasien. Oleh karena itu, rumah sakit membutuhkan keberadaan suatu sistem informasi pengelolaan data yang akurat, efektif, serta efisien. Maka dari permasalahan tersebut dirancanglah sebuah program dimana program tersebut dapat memproses data. Dengan menggunakan sebuah program diharapkan dapat memberikan efisiensi waktu dan efektifitas hal yang nantinya akan dilakukan oleh admin dan pasien.
+	
+  Pada kasus kali ini kami membuat sebuah program Rumah Sakit dengan multi user yang menggunakan pasien dan admin. Dimana pasien dapat melakukan pedaftaran, memilih layanan konsultasi yang tersedia di rumah sakit, memilih dokter, menentukan harga konsultasi, dll. Sedangkan admin dapat menghapus, menambahkan, mencari, mengubah, serta menampilkan data-data yang terdapat dalam rumah sakit itu sendiri.Program membuat kelas Node dan Linkedlist untuk mengatur antrian pasien yang mendaftar. Kemudian, kelas Queue dibuat untuk menambahkan data pasien ke antrian dan menghapus data pasien dari antrian. Selanjutnya, program membuat fungsi-fungsi untuk memproses dan menampilkan data seperti daftar ruang, menampilkan data pada ruang, daftar menu layanan konsultasi, daftar nama dokter, dan harga layanan konsultasi.
+	
+  Pada awalnya, program akan meminta pengguna untuk menginputkan password dan username jika pengguna merupakan admin. Admin bisa menghapus, menambahkan, mencari, mengubah, serta menampilkan data-data yang terdapat dalam rumah sakit itu sendiri. Namun jika merupakan pasien, pengguna diminta untuk langsung memilih menu yang diinginkan.
+	
+  Jika pasien memilih menu registrasi konsultasi, program akan mengambil input dari pengguna untuk melakukan pendaftaran pasien dan memilih layanan konsultasi yang tersedia di Rumah Sakit. Pengguna akan diminta untuk memilih ruang pemeriksaan yang tersedia dan program akan menampilkan nomor antrian pasien.
+	
+  Dengan menerapkan algoritma dan struktur data, pengelolaan data di Rumah Sakit diharapkan menjadi lebih efektif dan efisien, sehingga dapat membantu meningkatkan kualitas pelayanan kesehatan bagi pasien.
