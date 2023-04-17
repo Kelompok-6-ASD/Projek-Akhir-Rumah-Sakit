@@ -44,6 +44,8 @@ Pada menu ini, user dapat melihat berapa jumlah saldo yang mereka miliki yang ke
 5. Tambah saldo
 Pada menu ini, user dapat menambahkan saldo mereka miliki yang kemudian nantinya akan digunakan untuk membayar akses rumah sakit seperti kamar, biaya berobat, biaya obat, dll.
 
+
+
 3. Login Admin
 Sama seperti menu login pasien, pada menu login admin user juga akan diminta untuk menginputkan username dan password sebagai admin.
  
