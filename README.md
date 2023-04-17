@@ -1,14 +1,77 @@
 # Projek-Akhir-Rumah-Sakit
 Kelompok 6 Projek Akhir ASD Rumah Sakit
 
-	Seiring dengan era digital yang terus berkembang maka berbagai sektor bidang juga harus dapat mengikuti arus tersebut. Begitupun dengan bidang kesehatan, dunia kesehatan tidak terlepas dari teknologi komputer dan teknologi informasi. Pengolahan data medis yang dahulu dilakukan secara manual, saat ini dibuat menjadi otomatis dengan sistem informasi untuk mempercepat proses kerja para tenaga medis dalam memperoleh data. Pengolahan data secara manual dirasa masi kurang efisien karena memakan waktu yang lama dan juga memungkinkan terjadinya human error. Ditambah lagi dengan jumlah pasien yang relatif banyak per hari dan tenaga administrasi Rumah Sakit yang terbatas dapat menyebabkan adanya duplikasi data rekam medis pasien yang tidak terkontrol, sehingga kemungkinan terjadinya kesalahan sangat besar.
-  
-  Rumah sakit Sebagai salah satu institusi pelayanan umum yang memiliki tugas penting dalam menyelamatkan nyawa pasien. Oleh karena itu, rumah sakit membutuhkan keberadaan suatu sistem informasi pengelolaan data yang akurat, efektif, serta efisien. Maka dari permasalahan tersebut dirancanglah sebuah program dimana program tersebut dapat memproses data. Dengan menggunakan sebuah program diharapkan dapat memberikan efisiensi waktu dan efektifitas hal yang nantinya akan dilakukan oleh admin dan pasien.
-	
-  Pada kasus kali ini kami membuat sebuah program Rumah Sakit dengan multi user yang menggunakan pasien dan admin. Dimana pasien dapat melakukan pedaftaran, memilih layanan konsultasi yang tersedia di rumah sakit, memilih dokter, menentukan harga konsultasi, dll. Sedangkan admin dapat menghapus, menambahkan, mencari, mengubah, serta menampilkan data-data yang terdapat dalam rumah sakit itu sendiri.Program membuat kelas Node dan Linkedlist untuk mengatur antrian pasien yang mendaftar. Kemudian, kelas Queue dibuat untuk menambahkan data pasien ke antrian dan menghapus data pasien dari antrian. Selanjutnya, program membuat fungsi-fungsi untuk memproses dan menampilkan data seperti daftar ruang, menampilkan data pada ruang, daftar menu layanan konsultasi, daftar nama dokter, dan harga layanan konsultasi.
-	
-  Pada awalnya, program akan meminta pengguna untuk menginputkan password dan username jika pengguna merupakan admin. Admin bisa menghapus, menambahkan, mencari, mengubah, serta menampilkan data-data yang terdapat dalam rumah sakit itu sendiri. Namun jika merupakan pasien, pengguna diminta untuk langsung memilih menu yang diinginkan.
-	
-  Jika pasien memilih menu registrasi konsultasi, program akan mengambil input dari pengguna untuk melakukan pendaftaran pasien dan memilih layanan konsultasi yang tersedia di Rumah Sakit. Pengguna akan diminta untuk memilih ruang pemeriksaan yang tersedia dan program akan menampilkan nomor antrian pasien.
-	
-  Dengan menerapkan algoritma dan struktur data, pengelolaan data di Rumah Sakit diharapkan menjadi lebih efektif dan efisien, sehingga dapat membantu meningkatkan kualitas pelayanan kesehatan bagi pasien.
+	Rumah sakit adalah sebuah institusi medis yang menyediakan perawatan kesehatan bagi pasien yang membutuhkan. Sebagai sebuah institusi yang memiliki tugas penting dalam menyelamatkan nyawa pasien, rumah sakit memerlukan pengelolaan data yang efektif dan efisien. Untuk itu, pemrograman mata kuliah algoritma dan struktur data sangatlah penting untuk diterapkan dalam pengelolaan data di rumah sakit.
+	Contoh penerapan algoritma dan struktur data di rumah sakit adalah dalam sistem pencatatan medis elektronik (Electronic Medical Record/EMR). EMR adalah sebuah sistem yang digunakan untuk mengelola dan menyimpan data pasien secara digital. EMR menggunakan algoritma untuk mencari data pasien yang terkait dengan penyakit tertentu. EMR juga menggunakan struktur data seperti linked list untuk menyimpan data pasien secara efisien dan mempercepat proses pencarian data.
+	Program Python untuk simulasi manajemen pasien pada sebuah rumah sakit dapat dibangun dengan menggunakan struktur data yang sesuai dan algoritma yang efektif. Dalam program tersebut, kita dapat menggunakan kelas sebagai wadah untuk menyimpan data dan metode-metode yang terkait.
+	Program yang kami buat ini adalah sebuah program rumah sakit yang berfungsi untuk melakukan login pasien, login admin, dan registrasi pasien, yang dimana didalam menu-menu tersebut nantinya kan ada banyak menu pilihan lain lagi. Penjelasan lebih detail seperti dibawah ini.
+
+STRUKTUR DATA : 
+	Program dimulai dengan mengimpor beberapa modul dan memuat beberapa variabel yang akan digunakan dalam program. Pada tampilan awal akan tampil menu pilihan seperti Login Pasien, Login Admin, Registrasi Pasien, dan menu untuk keluar, seperti pada gambar dibawah ini.
+
+
+
+
+
+
+1. Registrasi Pasien
+Pada menu ini user akan diminta untuk menginputkan username beserta password untuk login pasien nantinya. Setelah itu program akan kembali ke menu sebelumnya.
+ 
+
+
+2. Login Pasien
+Pada menu ini user akan di arahkan untuk menginputkan username serta password pasien yang bersangkutan (password akan dilindungi, sehingga ketika menginputkan password, akan tampil simbol bintang saja). 
+ 
+
+Dan jika berhasil login (data pasien ditemukan) maka program akan menampilkan pilihan menu lagi yakni informasi kamar, pemesanan, apotek, liat saldo, tambah saldo, dan exit.
+ 
+
+ 
+1. Informasi Kamar
+Sesuai namanya, pada menu ini program akan menampilkan informasi kamar yang tersdia pada Rumah Sakit Berjaya. Jika ingin keluar dari ini, pengguna dapat mengklik tombol “0” dan enter, dn program akan kembali ke menu sebelumnya.
+    
+
+2. Pemesanan
+Dalam menu ini, user akan diarahkan untuk memesan kamar. Kemudian user diminta menginputkan id pasien yang telah terdaftar, nomor jenis kamar yang diinginkan dan jumlah hari untuk menginap. Setelah itu akan tampil sebuah invoice tentang informasi pemesanan kamar.
+    
+
+3. Apotek
+Dalam menu ini, program akan memunculkan daftar obat yang tersedia pada rumah sakit tersebut. Setelah itu, user diminta untuk menginputkan nama serta jumlah obat yang ingin dibeli. Lalu akan muncul total harga dari obat yang akan dibeli.
+ 
+4. Liat Saldo
+Pada menu ini, user dapat melihat berapa jumlah saldo yang mereka miliki yang kemudian nantinya akan digunakan untuk membayar akses rumah sakit seperti kamar, biaya berobat, biaya obat, dll.
+
+5. Tambah saldo
+Pada menu ini, user dapat menambahkan saldo mereka miliki yang kemudian nantinya akan digunakan untuk membayar akses rumah sakit seperti kamar, biaya berobat, biaya obat, dll.
+
+3. Login Admin
+Sama seperti menu login pasien, pada menu login admin user juga akan diminta untuk menginputkan username dan password sebagai admin.
+ 
+
+Lalu, program akan menampilkan menu pilihan lagi seperti registrasi pasien, read data pemeriksaan pasien, update data pasien, delete data pasien, sorting data pasien, searching data pasien, dll. Dan user akan diminta menginputkan menu apa yang ingin dijalankan.
+ 
+
+1. Registrasi Pasien
+Sama halnya seperti menu registrasi pasien pada menu awal program, menu ini juga bertujuan untuk membuat data pasien rumah sakit. Bedanya, pada menu ini, user diminta untuk menginputkan id, nama, umur, alamat, dan penyakit yang didiagnosa pasien.
+ 
+
+2. Read Data Pemeriksaan Pasien
+Pada menu ini program akan menampilkan data-data pasien yang sudah terdaftar sebelumnya.
+ 
+
+3. Update Data Pasien
+Pada menu ini user dapat mengubah data pasien yang sudah terdaftar. User akan diminta untuk menginputkan nomor data pasien yang akan di ubah. Setelah itu user diminta lagi untuk menginputkan perubahan data pasien seperti ID, nama, umur, alamat, dan penyakit yang di diagnosa.
+ 
+
+4. Delete Data Pasien
+Pada menu ini, user akan dapat menghapus data pasien yang telah terdaftar. User akan diminta untuk menginputkan nomor urut dari data pasien yang ingin dihapus.
+ 
+
+5. Sorting Data Pasien
+Pada menu ini user dapat mengurutkan data pasien yang telah terdaftar. Seperti pada gambar dibawah.
+ 
+
+6. Searching Data Pasien
+Pada menu ini user dapat mencari data pasien yang telah terdaftar. User akan diminta untuk menginputkan id pasien yang ingin dicari. Kemudian akan muncul data pasien yang dicari seperti indexnya, ID, nama, umur, alamat, dan diagnosa penyakit pasien.
+ 
+
