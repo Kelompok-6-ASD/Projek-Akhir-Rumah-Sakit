@@ -168,9 +168,7 @@ class LinkedList:
             count += 1
             current_node = current_node.next
         return None
-
-
-
+ 
 
     def cari_pasien(self):
         carii = input("Masukkan ID pasien yang ingin di cari: ").replace (" ","")
@@ -204,7 +202,6 @@ class LinkedList:
         if not found:
             print("ID pasien yang Anda masukkan salah atau tidak ada")
             return
-
 
 
     def tampilankamar(self):
@@ -323,7 +320,6 @@ def beli_obat(apotek):
     else:
         print(f"Maaf, obat {nama_obat} tidak tersedia.")
         return False
-
 
 
 def informasi_kamar():
