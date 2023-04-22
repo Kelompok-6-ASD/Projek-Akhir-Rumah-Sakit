@@ -168,7 +168,6 @@ class LinkedList:
             count += 1
             current_node = current_node.next
         return None
- 
 
     def cari_pasien(self):
         carii = input("Masukkan ID pasien yang ingin di cari: ").replace (" ","")
@@ -202,7 +201,6 @@ class LinkedList:
         if not found:
             print("ID pasien yang Anda masukkan salah atau tidak ada")
             return
-
 
     def tampilankamar(self):
         table = PrettyTable()
@@ -272,7 +270,6 @@ def tambah_obat(apotek, nama_obat, harga, stok):
         apotek[nama_obat] = {'harga': harga, 'stok': stok}
         print(f"Obat {nama_obat} berhasil ditambahkan dengan harga {harga} dan stok {stok}.")
 
-
 def tampilan_obat(apotek):
     table = PrettyTable()
     table.field_names = ["Obat", "Harga", "Stok"]
@@ -282,7 +279,6 @@ def tampilan_obat(apotek):
     table_title = colored("Selamat Datang di Apotek Berjaya, Berikut Adalah Obat Yang Tersedia", "green", attrs=["bold"])
     print(table_title)
     print(table)
-
 
 def beli_obat(apotek):
     while True:
