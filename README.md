@@ -1,3 +1,9 @@
+# Nama Kelompok
+1. Joviana Young (2209116012)
+2. Aufa Tri Hapsari (2209116031)
+3. Fina Anriani (2209116051)
+
+
 # Rumah-Sakit
 Kelompok 6 Projek Akhir ASD Rumah Sakit
 
