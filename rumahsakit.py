@@ -323,7 +323,7 @@ def informasi_kamar():
         print("")
         print("Intensive Care Unit (ICU)")
         print("---------------------------------------------------------------")
-        print("ICU adalh ruangan khusus bagi pasien kritis yang perlu perawatan intensif dan ")
+        print("ICU adalah ruangan khusus bagi pasien kritis yang perlu perawatan intensif dan ")
         print("pengawasan terus menerus")
     
         print("High Care Unit (HCU)")
