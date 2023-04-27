@@ -41,7 +41,7 @@ class LinkedList:
     # Menampilkan data pasien yang terdaftar dalam bentuk tabel.
     def tampilan_pasien(self):
         if not self.head:
-            print("Tidak Ada Data Pasien Yang Terdaftar")
+            print(">>> Tidak Ada Data Pasien Yang Terdaftar. <<<")
         else:
             v = 1
             current = self.head
@@ -60,19 +60,19 @@ class LinkedList:
             index.umur_pasien = umur_pasien
             index.alamat = alamat
             index.diagnosa = diagnosa
-            print("Data Pasien Berhasil di Update")
+            print(">>> Data Pasien Berhasil di Update. <<<")
         else:
             print("Data Pasien Tidak Ditemukan")
 
     # menghapus data pasien pada linked list berdasarkan index
     def hapus_pasien(self, index):
         if not self.head:
-            print("Tidak Ada Nama Pasien yang Terdaftar")
+            print(">>> Tidak Ada Nama Pasien yang Terdaftar. <<<")
             return
         
         if index == 1:
             self.head = self.head.next
-            print("Data Pasien Berhasil Dihapus")
+            print(">>> Data Pasien Berhasil Dihapus. <<<")
             return
         
         prev = None
@@ -84,12 +84,12 @@ class LinkedList:
             s += 1
 
         if not current:
-            print("Pasien dengan Index tersebut Tidak Ditemukan")
+            print(">>> Pasien dengan Index tersebut Tidak Ditemukan. <<<")
             return
         
         prev.next = current.next
         current.next = None
-        print("Data Pasien Berhasil di Hapus")
+        print(">>> Data Pasien Berhasil di Hapus. <<<")
 
     # mengurutkan elemen berdasarkan nilai ID pasien secara ascending.
     def shell_sort(self):
@@ -172,7 +172,7 @@ class LinkedList:
     def cari_pasien(self):
         carii = input("Masukkan ID pasien yang ingin di cari: ").replace (" ","")
         if not carii.isdigit():
-            print("ID pasien harus berupa angka")
+            print(">>> ID Pasien Harus Berupa Angka! <<<")
             return
         
         daftar_pasien = self.head
@@ -199,7 +199,7 @@ class LinkedList:
                     return
             daftar_pasien = daftar_pasien.next
         if not found:
-            print("ID pasien yang Anda masukkan salah atau tidak ada")
+            print(">>> ID pasien yang Anda masukkan salah atau tidak ada. <<<")
             return
 
     def tampilankamar(self):
@@ -220,12 +220,12 @@ class LinkedList:
             return
         days = int(input("Masukkan jumlah hari menginap: "))
         if days < 1:
-            print("Jumlah hari tidak valid")
+            print(">>> Jumlah Hari Tidak Valid. <<<")
             return
         prices = [350000, 400000, 450000, 500000, 500000]
         total = prices[aa - 1] * days
         if self.saldo < total:
-            print("Saldo Anda tidak mencukupi untuk memesan kamar ini")
+            print(">>> Saldo Anda Tidak Mencukupi untuk Memesan Kamar Ini. <<<")
             return
         self.saldo -= total
         rows = str(table).split("\n")[3:-1]
@@ -287,13 +287,13 @@ def beli_obat(apotek):
             jumlah = int(input("Masukkan jumlah obat yang ingin dibeli: "))
             break
         except ValueError:
-            print("Input tidak valid. Silahkan masukkan angka untuk jumlah obat.")
+            print(">>> Input Tidak Valid. Silahkan Masukkan Angka untuk Jumlah Obat! <<<")
 
     if nama_obat in apotek:
         if apotek[nama_obat]['stok'] >= jumlah:
             total_harga = apotek[nama_obat]['harga'] * jumlah
             if total_harga > ana.saldo:
-                print("Maaf, saldo anda tidak cukup.")
+                print(">>> Maaf, saldo anda tidak cukup. <<<")
                 return False
             apotek[nama_obat]['stok'] -= jumlah
             ana.saldo -= total_harga
@@ -344,10 +344,19 @@ def informasi_kamar():
         print("---------------------------------------------------------------")
         print("Ruangan ini diperuntukkan bagi bayi yang tidak diambil NICU serta anak hingga 18 tahun,")
         print()
-        n=int(input("0-KEMBALI\n ->"))
-        if n==0:
-            os.system('cls')
-            return
+        while True:
+            try:
+                n=int(input("0-KEMBALI\n ->"))
+                if n==0:
+                    os.system('cls')
+                    return
+                else:
+                    raise ValueError
+            except ValueError:
+                print
+                print(">>> Inputan Tidak Valid. Masukkan Angka 0 untuk Kembali. <<<") 
+                print()
+
 
 def menu_pasien():
     while True:
@@ -532,7 +541,10 @@ def pasien_login():
         else:
             print("Maaf, username atau password yang Anda masukkan salah.")
     except ValueError:
+        print()
         print("Maaf, terjadi kesalahan pada tipe data yang Anda masukkan.")
+        print()
+        menu_pasien()
 
     
 # Fungsi login admin
