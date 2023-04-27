@@ -62,7 +62,7 @@ class LinkedList:
             index.diagnosa = diagnosa
             print(">>> Data Pasien Berhasil di Update. <<<")
         else:
-            print("Data Pasien Tidak Ditemukan")
+            print(">>> Data Pasien Tidak Ditemukan. <<<")
 
     # menghapus data pasien pada linked list berdasarkan index
     def hapus_pasien(self, index):
@@ -170,7 +170,7 @@ class LinkedList:
         return None
 
     def cari_pasien(self):
-        carii = input("Masukkan ID pasien yang ingin di cari: ").replace (" ","")
+        carii = input("Masukkan ID Pasien yang Ingin di Cari: ").replace (" ","")
         if not carii.isdigit():
             print(">>> ID Pasien Harus Berupa Angka! <<<")
             return
@@ -190,7 +190,7 @@ class LinkedList:
             for i in range(left, right + 1):
                 if arr[i] == carii:
                     node = self.getindex(i)
-                    print(f"Data Pasien Ditemukan pada index ke-{i+0}")
+                    print(f"Data Pasien Ditemukan pada Index Ke-{i+0}")
                     print(f"ID Pasien: {node.id_pasien}")
                     print(f"Nama Pasien: {node.nama_pasien}")
                     print(f"Umur Pasien: {node.umur_pasien}")
@@ -204,7 +204,7 @@ class LinkedList:
 
     def tampilankamar(self):
         table = PrettyTable()
-        table.field_names = ["No.", "Jenis Kamar", "Deskripsi", "Harga per hari"]
+        table.field_names = ["No.", "Jenis Kamar", "Deskripsi", "Harga Per Hari"]
         table.add_row(["1", "Intensive Care Unit (ICU)", "Pasien Harus Cepat mendapatkan perawatan, ruangan dilengkapi peralatan canggih", "Rp. 350.000"])
         table.add_row(["2", "High Care Unit (HCU)", "Untuk pasien rawat inap, ruangan dilengkapi peralatan canggih", "Rp. 400.000"])
         table.add_row(["3", "Intensive Coronary Care Unit (ICCU)", "Ruangan untuk penderita penyakit jantung, kedap suara dan hening", "Rp. 450.000"])
@@ -214,11 +214,11 @@ class LinkedList:
         print("----PILIH KAMAR PASIEN----")
         print(table)
         print()
-        aa = int(input("pilih nomor jenis kamar yang anda inginkan :"))
+        aa = int(input("Pilih Nomor Jenis Kamar yang Anda Inginkan :"))
         if aa < 1 or aa > 5:
-            print("Nomor kamar tidak valid")
+            print("Nomor Kamar Tidak Valid")
             return
-        days = int(input("Masukkan jumlah hari menginap: "))
+        days = int(input("Masukkan Jumlah Hari Menginap: "))
         if days < 1:
             print(">>> Jumlah Hari Tidak Valid. <<<")
             return
@@ -247,12 +247,12 @@ class LinkedList:
         print(invoice)
 
         print()
-        print(f"Berhasil memesan kamar,{kamar}dengan biaya Rp.{total:,}")
+        print(f"Berhasil Memesan Kamar,{kamar}dengan Biaya Rp.{total:,}")
         print()
-        print("===========================================================")
+        print("============================================================")
         print(      f"Saldo Anda sekarang adalah Rp.{ana.saldo:,}")
-        print(">>>Terima kasih telah memesan kamar di rumah sakit kami<<<")
-        print("===========================================================")
+        print(">>> Terima Kasih Telah Memesan Kamar di Rumah Sakit Kami <<<")
+        print("============================================================")
         return ana.saldo
 
 ana = LinkedList()
@@ -265,10 +265,10 @@ apotek = {'paracetamol': {'stok': 100,'harga': 5000},
 
 def tambah_obat(apotek, nama_obat, harga, stok):
     if nama_obat in apotek:
-        print(f"Obat {nama_obat} sudah tersedia.")
+        print(f"Obat {nama_obat} Sudah Tersedia.")
     else:
-        apotek[nama_obat] = {'harga': harga, 'stok': stok}
-        print(f"Obat {nama_obat} berhasil ditambahkan dengan harga {harga} dan stok {stok}.")
+        apotek[nama_obat] = {'Harga': harga, 'Stok': stok}
+        print(f"Obat {nama_obat} Berhasil Ditambahkan dengan Harga {harga} dan Stok {stok}.")
 
 def tampilan_obat(apotek):
     table = PrettyTable()
@@ -283,22 +283,22 @@ def tampilan_obat(apotek):
 def beli_obat(apotek):
     while True:
         try:
-            nama_obat = input("Masukkan nama obat yang ingin dibeli: ").strip().replace("\t","")
-            jumlah = int(input("Masukkan jumlah obat yang ingin dibeli: "))
+            nama_obat = input("Masukkan Nama Obat yang Ingin Dibeli: ").strip().replace("\t","")
+            jumlah = int(input("Masukkan Jumlah Obat yang Ingin Dibeli: "))
             break
         except ValueError:
             print(">>> Input Tidak Valid. Silahkan Masukkan Angka untuk Jumlah Obat! <<<")
 
     if nama_obat in apotek:
-        if apotek[nama_obat]['stok'] >= jumlah:
-            total_harga = apotek[nama_obat]['harga'] * jumlah
+        if apotek[nama_obat]['Stok'] >= jumlah:
+            total_harga = apotek[nama_obat]['Harga'] * jumlah
             if total_harga > ana.saldo:
-                print(">>> Maaf, saldo anda tidak cukup. <<<")
+                print(">>> Maaf, Saldo Anda Tidak Cukup. <<<")
                 return False
-            apotek[nama_obat]['stok'] -= jumlah
+            apotek[nama_obat]['Stok'] -= jumlah
             ana.saldo -= total_harga
-            print(f"Anda telah membeli {jumlah} {nama_obat} dengan total harga {total_harga}.")
-            print(f"Sisa saldo anda: {ana.saldo}")
+            print(f"Anda Telah Membeli {jumlah} {nama_obat} dengan Total Harga {total_harga}.")
+            print(f"Sisa Saldo Anda: {ana.saldo}")
             # Tambahkan fitur invoice
             with open('invoice.txt', 'a') as f:
                 f.write ("=====================================\n")
@@ -311,51 +311,51 @@ def beli_obat(apotek):
                 f.write ("\n=====================================")
             return True
         else:
-            print(f"Maaf, stok obat {nama_obat} tidak cukup.")
+            print(f"Maaf, Stok Obat {nama_obat} Tidak Cukup.")
             return False
     else:
-        print(f"Maaf, obat {nama_obat} tidak tersedia.")
+        print(f"Maaf, Obat {nama_obat} Tidak Tersedia.")
         return False
 
 
 def informasi_kamar():
-        print("    ----------------------  ROOMS INFO Hospital-------------------------")
-        print("")
-        print("Intensive Care Unit (ICU)")
-        print("---------------------------------------------------------------")
-        print("ICU adalah ruangan khusus bagi pasien kritis yang perlu perawatan intensif dan ")
-        print("pengawasan terus menerus")
+    print("    ---------------------------  ROOMS INFO Hospital  -----------------------------    ")
+    print("")
+    print("== Intensive Care Unit (ICU) ==")
+    print("---------------------------------------------------------------------------------------")
+    print("ICU adalah ruangan khusus bagi pasien kritis yang perlu perawatan intensif dan ")
+    print("pengawasan terus menerus")
+
+    print("== High Care Unit (HCU) ==")
+    print("---------------------------------------------------------------------------------------")
+    print("HCU adalah pelayanan yang dikendalikan ke rauan rawat inap")
+    print("ruangan ini di peruntukkan kepada pasien yang sudah kondisi membaik")
+    print("namun masih perlu pengawasan ketat oleh tenaga medis\n")
+
+    print("== Intensive Coronary Care Unit (ICCU) ==")
+    print("---------------------------------------------------------------------------------------")
+    print("Ruangan ini cocok untuk penderita penyakit jantung.\n")
     
-        print("High Care Unit (HCU)")
-        print("---------------------------------------------------------------")
-        print("HCU adalah pelayanan yang dikendalikan ke rauan rawat inap")
-        print("ruangan ini di peruntukkan kepada pasien yang sudah kondisi membaik")
-        print("namun masih perlu pengawasan ketat oleh tenaga medis\n")
+    print("== Neonatal Intensive Care Unit (NICU) ==")
+    print("---------------------------------------------------------------------------------------")
+    print("Ruangan ini cocok untuk pelayanan bersalin/melahirkan,")
 
-        print("Intensive Coronary Care Unit (ICCU)")
-        print("---------------------------------------------------------------")
-        print("Ruangan ini cocok untuk penderita penyakit jantung.\n")
-        
-        print("Neonatal Intensive Care Unit (NICU)")
-        print("---------------------------------------------------------------")
-        print("Ruangan ini cocok untuk pelayanan bersalin/melahirkan,")
-
-        print("Pediatric Intensive Care Unit (PICU)")
-        print("---------------------------------------------------------------")
-        print("Ruangan ini diperuntukkan bagi bayi yang tidak diambil NICU serta anak hingga 18 tahun,")
-        print()
-        while True:
-            try:
-                n=int(input("0-KEMBALI\n ->"))
-                if n==0:
-                    os.system('cls')
-                    return
-                else:
-                    raise ValueError
-            except ValueError:
-                print
-                print(">>> Inputan Tidak Valid. Masukkan Angka 0 untuk Kembali. <<<") 
-                print()
+    print("== Pediatric Intensive Care Unit (PICU) ==")
+    print("---------------------------------------------------------------------------------------")
+    print("Ruangan ini diperuntukkan bagi bayi yang tidak diambil NICU serta anak hingga 18 tahun.")
+    print()
+    while True:
+        try:
+            n=int(input("0-KEMBALI\n ->"))
+            if n==0:
+                os.system('cls')
+                return
+            else:
+                raise ValueError
+        except ValueError:
+            print
+            print(">>> Inputan Tidak Valid. Masukkan Angka 0 untuk Kembali. <<<") 
+            print()
 
 
 def menu_pasien():
@@ -373,15 +373,15 @@ def menu_pasien():
         print("|===================================|")
         print()
         
-        ch = (input("Pilih menu yang diinginkan: ")).replace (" ","")
+        ch = (input("Pilih Menu yang Diinginkan: ")).replace (" ","")
 
         if ch == "1":
             informasi_kamar()
         elif ch == "2":
-            cari = int(input("Masukkan ID Pasien yang sudah terdaftar: "))
+            cari = int(input("Masukkan ID Pasien yang Sudah Terdaftar: "))
             idx = ana.get_id(cari)
             if idx == -1:
-                print("Pasien tidak ditemukan")
+                print(">>> Pasien Tidak Ditemukan. <<<")
             else:
                 ana.tampilankamar()
         elif ch == "3":
@@ -396,9 +396,9 @@ def menu_pasien():
         elif ch == "6":
             break
         elif ch == "7":
-            sys.exit("program telah selesai.")
+            sys.exit(">>> Program Telah Selesai. <<<")
         else:
-            print("Pilihan tidak valid. Silakan coba lagi.")
+            print(">>> Pilihan Tidak Valid. Silakan Coba Lagi. <<<")
 
 
 def menu_admin():
@@ -424,7 +424,7 @@ def menu_admin():
             alamat = input("Masukkan Alamat Pasien: ")
             diagnosa = input("Masukkan Penyakit yang di Diagnosa: ")
             ana.tambah_pasien(id_pasien, nama_pasien, umur_pasien, alamat, diagnosa)
-            print("Data Pasien Berhasil di Tambahkan")
+            print(">>> Data Pasien Berhasil di Tambahkan. <<<")
 
         elif tanya == "2":
             ana.tampilan_pasien()
@@ -442,16 +442,16 @@ def menu_admin():
                     diagnosa_baru = input("Masukkan Penyakit yang sedang di Diagnosa: ")
                     ana.update_pasien(jj, id_Pasienbaru, nama_pasienbaru, umur_pasienbaru, alamat_baru, diagnosa_baru)
                 else:
-                    print("Pasien yang Anda cari tidak Ditemukan")
+                    print(">>> Pasien yang Anda Cari Tidak Ditemukan. <<<")
 
         elif tanya == "4":
             ana.tampilan_pasien()
             index = int(input("Masukan Nomor Pasien Jika ingin Menghapus Data Pasien: "))
-            barang = ana.getindex(index -1)
-            if barang:
+            np = ana.getindex(index -1)
+            if np:
                 ana.hapus_pasien(index)
             else:
-                print(f"data barang dengan id barang {index} tidak ditemukan")
+                print(f"Data Pasien dengan ID Pasien {index} Tidak Ditemukan")
 
 
         elif tanya == "5":
@@ -467,10 +467,10 @@ def menu_admin():
             break
 
         elif tanya == "8":
-            sys.exit("program telah selesai.")
+            sys.exit(">>> Program Telah Selesai. <<<")
 
         else:
-            print("Pilihan tidak valid. Silakan coba lagi.")
+            print(">>> Pilihan Tidak Valid. Silakan Coba Lagi. <<<")
 
 
 # Koneksi ke database
@@ -496,8 +496,8 @@ def koneksi():
 # Fungsi registrasi pasien
 def regis(mydb):
     cursor = mydb.cursor()
-    username =str.strip(input("Masukkan username Anda: ").strip("\t").strip(" ").replace("\t",""))
-    password =str.strip(pwinput.pwinput("Masukkan password Anda: ").replace (" ",""))
+    username =str.strip(input("Masukkan Username Anda: ").strip("\t").strip(" ").replace("\t",""))
+    password =str.strip(pwinput.pwinput("Masukkan Password Anda: ").replace (" ",""))
     role = "pasien"
 
     # Query untuk memeriksa keberadaan username dan password di tabel user
@@ -509,13 +509,13 @@ def regis(mydb):
     print()
 
     # Jika ditemukan user dengan username dan password yang sesuai
-    print("Registrasi berhasil!")
+    print(">>> Registrasi Berhasil! <<<")
 
 # Fungsi login pasien   
 def pasien_login():
     try:
-        username = str.strip(input("Masukkan username Pasien: ").replace (" ",""))
-        password = pwinput.pwinput("Masukkan password Pasien: ").strip("\t").strip(" ").replace("\t","")
+        username = str.strip(input("Masukkan Username Pasien: ").replace (" ",""))
+        password = pwinput.pwinput("Masukkan Password Pasien: ").strip("\t").strip(" ").replace("\t","")
         role = 'pasien'
         print()
 
@@ -539,10 +539,10 @@ def pasien_login():
             os.system('cls')
             menu_pasien()
         else:
-            print("Maaf, username atau password yang Anda masukkan salah.")
+            print(">>> Maaf, Username atau Password yang Anda Masukkan Salah. <<<")
     except ValueError:
         print()
-        print("Maaf, terjadi kesalahan pada tipe data yang Anda masukkan.")
+        print(">>> Maaf, Terjadi Kesalahan Pada Tipe Data yang Anda Masukkan. <<<")
         print()
         menu_pasien()
 
@@ -551,8 +551,8 @@ def pasien_login():
 def admin_login():
     while True:
         try:
-            username = input("Masukkan username Admin: ").strip("\t").strip(" ").replace("\t","")
-            password = input("Masukkan password Admin: ")
+            username = input("Masukkan Username Admin: ").strip("\t").strip(" ").replace("\t","")
+            password = input("Masukkan Password Admin: ")
             role = 'admin'
             
             # Query untuk memeriksa keberadaan username dan password di tabel admin
@@ -568,15 +568,15 @@ def admin_login():
                 x = datetime.datetime.now()
                 waktu = time.asctime( time.localtime(time.time()) )
                 print(waktu)
-                print("Login berhasil. Selamat datang, {}!".format(admin[0]))
+                print("Login berhasil. Selamat Datang, {}!".format(admin[0]))
                 time.sleep(3)
                 os.system('cls')
                 menu_admin()
                 break
             else:
-                print("Login gagal. Silakan coba lagi.")
+                print(">>> Login Gagal. Silakan Coba Lagi! <<<")
         except ValueError:
-            print("Input tidak valid. Silakan coba lagi.")
+            print(">>> Input Tidak Valid. Silakan Coba Lagi. <<<")
 
 
 mydb = koneksi()
@@ -590,7 +590,6 @@ def login():
     ana.tambah_pasien("444","young", 20, "jakarta", "dbd")
     ana.tambah_pasien("555", "alya", 21, "tengarong", "mag")
     
-
     print("|================================|")
     print("|   SELAMAT DATANG DI MENU LOGIN |")
     print("|           RS. BERJAYA          |")
@@ -609,7 +608,7 @@ def login():
 def opsional():
     while True:
         try:               
-            choice = input("Masukkan pilihan: ")
+            choice = input("Masukkan Pilihan: ")
 
             if choice == "1": 
                 print()
@@ -625,12 +624,12 @@ def opsional():
                 
             elif choice == "4":
                 print()
-                print(">>>TERIMA KASIH TELAH BERKUNJUNG DI RS BERJAYA<<<")
+                print(">>> TERIMA KASIH TELAH BERKUNJUNG DI RS BERJAYA <<<")
                 exit()
             else:
-                print("Pilihan tidak valid. Silakan coba lagi.")   
+                print(">>> Pilihan Tidak Valid. Silakan Coba Lagi. <<<")   
         except ValueError and KeyboardInterrupt:
-            print ("Masukan Pilihan Yang sesuai")
+            print (">>> Masukan Pilihan yang Sesuai! <<<")
         
 login()
 opsional()
