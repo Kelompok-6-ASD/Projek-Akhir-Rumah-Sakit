@@ -195,7 +195,7 @@ class LinkedList:
 
         if not found:
             print()
-            print(">>> ID pasien yang Anda masukkan salah atau tidak ada. <<<")
+            print(">>> ID pasien yang Anda Masukkan Salah atau Tidak Ada. <<<")
             print()
 
     def pesan_kamar(self):
