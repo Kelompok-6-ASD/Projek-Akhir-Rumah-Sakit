@@ -171,38 +171,34 @@ class LinkedList:
             current_node = current_node.next
         return None
 
+    import math
+
     def cari_pasien(self):
-        carii = input("Masukkan ID Pasien yang Ingin di Cari: ").replace (" ","")
+        carii = input("Masukkan ID Pasien yang Ingin di Cari: ").replace(" ", "")
         if not carii.isdigit():
+            print()
             print(">>> ID Pasien Harus Berupa Angka! <<<")
+            print()
             return
-        
-        daftar_pasien = self.head
+
+        node = self.head
         found = False
-        while daftar_pasien is not None:
-            # Konversi data Linked List ke array
-            arr = self.to_array()
-            n = len(arr)
-            jump = int(math.sqrt(n))
-            left, right = 0, 0
-            # Melakukan jump search pada array
-            while right < n and int(arr[right]) < int(carii):
-                left = right
-                right = min(n - 1, right + jump)
-            for i in range(left, right + 1):
-                if arr[i] == carii:
-                    node = self.getindex(i)
-                    print(f"Data Pasien Ditemukan pada Index Ke-{i+0}")
-                    print(f"ID Pasien: {node.id_pasien}")
-                    print(f"Nama Pasien: {node.nama_pasien}")
-                    print(f"Umur Pasien: {node.umur_pasien}")
-                    print(f"Alamat Pasien: {node.alamat}")
-                    print(f"Diagnosa Pasien: {node.diagnosa}")
-                    return
-            daftar_pasien = daftar_pasien.next
-            if not found:
-                print(">>> ID pasien yang Anda masukkan salah atau tidak ada. <<<")
-                return
+        while node is not None:
+            if node.id_pasien == int(carii):
+                found = True
+                print(f"Data Pasien Ditemukan pada Index Ke-{self.index(node)}")
+                print(f"ID Pasien: {node.id_pasien}")
+                print(f"Nama Pasien: {node.nama_pasien}")
+                print(f"Umur Pasien: {node.umur_pasien}")
+                print(f"Alamat Pasien: {node.alamat}")
+                print(f"Diagnosa Pasien: {node.diagnosa}")
+                break
+            node = node.next
+
+        if not found:
+            print()
+            print(">>> ID pasien yang Anda masukkan salah atau tidak ada. <<<")
+            print()
 
     def pesan_kamar(self):
         table = PrettyTable()
