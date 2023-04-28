@@ -332,7 +332,6 @@ def beli_obat(apotek):
         print()
         return False
 
-
 def informasi_kamar():
     print("    ---------------------------  ROOMS INFO Hospital  -----------------------------    ")
     print("")
@@ -371,7 +370,6 @@ def informasi_kamar():
             print
             print(">>> Inputan Tidak Valid. Masukkan Angka 0 untuk Kembali. <<<") 
             print()
-
 
 def menu_pasien():
     while True:
@@ -426,7 +424,6 @@ def menu_pasien():
             print()
             print(">>> Pilihan Tidak Valid. Silakan Coba Lagi. <<<")
             print()
-
 
 def menu_admin():
     while True:
@@ -545,7 +542,9 @@ def regis(mydb):
     print()
 
     # Jika ditemukan user dengan username dan password yang sesuai
-    print(">>> Registrasi Berhasil! <<<")
+    print(">>> Registrasi Berhasil. Anda Dapat Login Sebagai Pasien! <<<")
+    print()
+    login()
 
 # Fungsi login pasien   
 def pasien_login():
@@ -639,19 +638,19 @@ def login():
     ana.tambah_pasien("444","young", 20, "jakarta", "dbd")
     ana.tambah_pasien("555", "alya", 21, "tengarong", "mag")
     
-    print("|================================|")
-    print("|   SELAMAT DATANG DI MENU LOGIN |")
-    print("|           RS. BERJAYA          |")
-    print("|================================|")
+    print("|=================================|")
+    print("|   SELAMAT DATANG DI MENU LOGIN  |")
+    print("|            RS. BERJAYA          |")
+    print("|=================================|")
     print()
-    print("|================================|")
-    print("|========== PILIH OPSI ==========|")
-    print("|================================|")
-    print("|====| 1.| Login Pasien          |")
-    print("|====| 2.| Login Admin           |")
-    print("|====| 3.| Registrasi Pasien     |")
-    print("|====| 4.| Keluar                |")
-    print("|================================|")
+    print("|=================================|")
+    print("|========== PILIH OPSI ===========|")
+    print("|=================================|")
+    print("|====| 1.| Login Pasien           |")
+    print("|====| 2.| Login Admin            |")
+    print("|====| 3.| Registrasi Pasien Baru |")
+    print("|====| 4.| Keluar                 |")
+    print("|=================================|")
     print()   
     
 def opsional():
