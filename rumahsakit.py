@@ -72,7 +72,9 @@ class LinkedList:
         
         if index == 1:
             self.head = self.head.next
+            print()
             print(">>> Data Pasien Berhasil Dihapus. <<<")
+            print()
             return
         
         prev = None
@@ -198,63 +200,74 @@ class LinkedList:
                     print(f"Diagnosa Pasien: {node.diagnosa}")
                     return
             daftar_pasien = daftar_pasien.next
-        if not found:
-            print(">>> ID pasien yang Anda masukkan salah atau tidak ada. <<<")
-            return
+            if not found:
+                print(">>> ID pasien yang Anda masukkan salah atau tidak ada. <<<")
+                return
 
-    def tampilankamar(self):
+    def pesan_kamar(self):
         table = PrettyTable()
-        table.field_names = ["No.", "Jenis Kamar", "Deskripsi", "Harga Per Hari"]
+        table.field_names = ["No.", "Jenis Kamar", "Deskripsi", "Harga per hari"]
         table.add_row(["1", "Intensive Care Unit (ICU)", "Pasien Harus Cepat mendapatkan perawatan, ruangan dilengkapi peralatan canggih", "Rp. 350.000"])
         table.add_row(["2", "High Care Unit (HCU)", "Untuk pasien rawat inap, ruangan dilengkapi peralatan canggih", "Rp. 400.000"])
         table.add_row(["3", "Intensive Coronary Care Unit (ICCU)", "Ruangan untuk penderita penyakit jantung, kedap suara dan hening", "Rp. 450.000"])
         table.add_row(["4", "Neonatal Intensive Care Unit (NICU)", "Ruangan untuk yang melahirkan, dilengkapi ruang tunggu orang tua", "Rp. 500.000"])
         table.add_row(["5", "Pediatric Intensive Care Unit (PICU)", "Ruangan untuk bayi dan 18 tahun, dilengkapi ruang tunggu orang tua", "Rp. 500.000"])
-        os.system('cls')
         print("----PILIH KAMAR PASIEN----")
         print(table)
+
+        id_pasien = input("Masukkan ID Pasien yang Telah Terdaftar: ")
         print()
-        aa = int(input("Pilih Nomor Jenis Kamar yang Anda Inginkan :"))
-        if aa < 1 or aa > 5:
-            print("Nomor Kamar Tidak Valid")
-            return
-        days = int(input("Masukkan Jumlah Hari Menginap: "))
-        if days < 1:
-            print(">>> Jumlah Hari Tidak Valid. <<<")
-            return
-        prices = [350000, 400000, 450000, 500000, 500000]
-        total = prices[aa - 1] * days
-        if self.saldo < total:
-            print(">>> Saldo Anda Tidak Mencukupi untuk Memesan Kamar Ini. <<<")
-            return
-        self.saldo -= total
-        rows = str(table).split("\n")[3:-1]
-        cells = [row.split("|")[1:-1] for row in rows]
-        kamar = cells[aa - 1][1]
-        invoice = f"{'RUMAH SAKIT BERJAYA':^95}\n\n"
-        invoice += f"{'INVOICE':^95}\n\n"
-        invoice += f"{'Nama Kamar':<25} {'Harga/Hari':<20} {'Jumlah Hari':<20} {'Total Harga':<20}\n"
-        invoice += "-" * 81 + "\n"
-        invoice += f"{kamar:<30} Rp.{prices[aa-1]:<10,} {days:<10,} Rp.{total:<10,}\n"
-        invoice += "-" * 81 + "\n"
-        invoice += f"{'Total Pembayaran':<60} Rp.{total:<15,}\n\n"
+        daftar_pasien = self.head
+        found = False
+        while daftar_pasien is not None:
+            if daftar_pasien.id_pasien == id_pasien:
+                aa = int(input("Pilih Nomor Jenis Kamar yang Anda Inginkan :"))
+                if aa < 1 or aa > 5:
+                    print(">>> Nomor Kamar Tidak Valid. <<<")
+                    return
+                days = int(input("Masukkan Jumlah Hari Menginap: "))
+                if days < 1:
+                    print(">>> Jumlah Hari Tidak Valid. <<<")
+                    return
+                prices = [350000, 400000, 450000, 500000, 500000]
+                total = prices[aa - 1] * days
+                if self.saldo < total:
+                    print(">>> Saldo Anda Tidak Mencukupi untuk Memesan Kamar Ini. <<<")
+                    return
+                self.saldo -= total
+                rows = str(table).split("\n")[3:-1]
+                cells = [row.split("|")[1:-1] for row in rows]
+                kamar = cells[aa - 1][1]
+
+                invoice = f"{'RUMAH SAKIT BERJAYA':^95}\n\n"
+                invoice += f"{'INVOICE':^95}\n\n"
+                invoice += f"{'Nama Kamar':<30} {'Harga/Hari':<20} {'Jumlah Hari':<20} {'Total Harga':<20}\n"
+                invoice += "-" * 100 + "\n"
+                invoice += f"{kamar:<1} Rp.{prices[aa-1]:<20,} {days:<20,} Rp.{total:<20,}\n"
+                invoice += "-" * 100 + "\n"
+                invoice += f"{'Total Pembayaran':<60} Rp.{total:<15,}\n\n"
+                invoice += ">>> Terima Kasih Telah Memesan Kamar di Rumah Sakit Berjaya. <<<\n"
         
-        # menulis invoice ke dalam file txt
-        with open("invoice_kamar.txt", "w") as file:
-            file.write(invoice)
+                # menulis invoice ke dalam file txt
+                with open("invoice_kamar.txt", "w") as file:
+                    file.write(invoice)
 
-        print("\n")
-        print(invoice)
+                print("\n")
+                print(invoice)
 
-        print()
-        print(f"Berhasil Memesan Kamar,{kamar}dengan Biaya Rp.{total:,}")
-        print()
-        print("============================================================")
-        print(      f"Saldo Anda sekarang adalah Rp.{ana.saldo:,}")
-        print(">>> Terima Kasih Telah Memesan Kamar di Rumah Sakit Kami <<<")
-        print("============================================================")
-        return ana.saldo
-
+                print()
+                print(f"Berhasil Memesan Kamar,{kamar}dengan Biaya Rp.{total:,}")
+                print()
+                print("============================================================")
+                print(         f"Saldo Anda sekarang adalah Rp.{ana.saldo:,}       ")
+                print("============================================================")
+                return ana.saldo
+            
+            daftar_pasien = daftar_pasien.next
+        if not found:
+            print(">>> ID Pasien yang Anda Masukkan Salah atau Tidak Ada. <<<")
+            print()
+            return
 ana = LinkedList()
 
 apotek = {'paracetamol': {'stok': 100,'harga': 5000}, 
@@ -276,9 +289,11 @@ def tampilan_obat(apotek):
     for obat, data in apotek.items():
         table.add_row([obat, data['harga'], data['stok']])
     # Menambahkan warna pada header tabel
-    table_title = colored("Selamat Datang di Apotek Berjaya, Berikut Adalah Obat Yang Tersedia", "green", attrs=["bold"])
+    print()
+    table_title = colored("Selamat Datang di Apotek Berjaya, Berikut Adalah Obat Yang Tersedia^_^", "green", attrs=["bold"])
     print(table_title)
     print(table)
+    print()
 
 def beli_obat(apotek):
     while True:
@@ -287,7 +302,9 @@ def beli_obat(apotek):
             jumlah = int(input("Masukkan Jumlah Obat yang Ingin Dibeli: "))
             break
         except ValueError:
+            print()
             print(">>> Input Tidak Valid. Silahkan Masukkan Angka untuk Jumlah Obat! <<<")
+            print()
 
     if nama_obat in apotek:
         if apotek[nama_obat]['Stok'] >= jumlah:
@@ -311,10 +328,14 @@ def beli_obat(apotek):
                 f.write ("\n=====================================")
             return True
         else:
+            print()
             print(f"Maaf, Stok Obat {nama_obat} Tidak Cukup.")
+            print()
             return False
     else:
+        print()
         print(f"Maaf, Obat {nama_obat} Tidak Tersedia.")
+        print()
         return False
 
 
@@ -377,28 +398,40 @@ def menu_pasien():
 
         if ch == "1":
             informasi_kamar()
+
         elif ch == "2":
-            cari = int(input("Masukkan ID Pasien yang Sudah Terdaftar: "))
-            idx = ana.get_id(cari)
-            if idx == -1:
-                print(">>> Pasien Tidak Ditemukan. <<<")
-            else:
-                ana.tampilankamar()
+            ana.pesan_kamar()
+
         elif ch == "3":
             tampilan_obat(apotek)
             beli_obat(apotek)
+
         elif ch == "4":
+            print()
+            print("=======================")
             print("Saldo Anda:",ana.saldo)
+            print("=======================")
+            print()
+
         elif ch == "5":
+            print()
             inputsaldo = int(input("Tambah Saldo: "))
             ana.saldo += inputsaldo
-            
+            print()
+
         elif ch == "6":
+            print()
+            login()
             break
+
         elif ch == "7":
+            print()
             sys.exit(">>> Program Telah Selesai. <<<")
+
         else:
+            print()
             print(">>> Pilihan Tidak Valid. Silakan Coba Lagi. <<<")
+            print()
 
 
 def menu_admin():
@@ -424,10 +457,13 @@ def menu_admin():
             alamat = input("Masukkan Alamat Pasien: ")
             diagnosa = input("Masukkan Penyakit yang di Diagnosa: ")
             ana.tambah_pasien(id_pasien, nama_pasien, umur_pasien, alamat, diagnosa)
+            print()
             print(">>> Data Pasien Berhasil di Tambahkan. <<<")
+            print()
 
         elif tanya == "2":
             ana.tampilan_pasien()
+            print()
 
         elif tanya == "3":
             ana.tampilan_pasien()
@@ -451,8 +487,9 @@ def menu_admin():
             if np:
                 ana.hapus_pasien(index)
             else:
-                print(f"Data Pasien dengan ID Pasien {index} Tidak Ditemukan")
-
+                print()
+                print(f"Data Pasien dengan Nomor {index} Tidak Ditemukan")
+                print()
 
         elif tanya == "5":
             ana.shell_sort()
@@ -464,13 +501,18 @@ def menu_admin():
             ana.cari_pasien()
 
         elif tanya == "7":
+            print()
+            login()
             break
 
         elif tanya == "8":
+            print()
             sys.exit(">>> Program Telah Selesai. <<<")
 
         else:
+            print()
             print(">>> Pilihan Tidak Valid. Silakan Coba Lagi. <<<")
+            print()
 
 
 # Koneksi ke database
@@ -540,6 +582,8 @@ def pasien_login():
             menu_pasien()
         else:
             print(">>> Maaf, Username atau Password yang Anda Masukkan Salah. <<<")
+            print()
+            login()
     except ValueError:
         print()
         print(">>> Maaf, Terjadi Kesalahan Pada Tipe Data yang Anda Masukkan. <<<")
@@ -567,6 +611,7 @@ def admin_login():
             if admin:
                 x = datetime.datetime.now()
                 waktu = time.asctime( time.localtime(time.time()) )
+                print()
                 print(waktu)
                 print("Login berhasil. Selamat Datang, {}!".format(admin[0]))
                 time.sleep(3)
@@ -574,9 +619,19 @@ def admin_login():
                 menu_admin()
                 break
             else:
-                print(">>> Login Gagal. Silakan Coba Lagi! <<<")
+                print()
+                print(">>> Username dan Password yang Anda Masukkan Salah. Silakan Coba Lagi! <<<")
+                print()
+                login()
+                break
+            
         except ValueError:
+            print()
             print(">>> Input Tidak Valid. Silakan Coba Lagi. <<<")
+            print()
+            admin_login()
+            break
+            
 
 
 mydb = koneksi()
@@ -627,7 +682,10 @@ def opsional():
                 print(">>> TERIMA KASIH TELAH BERKUNJUNG DI RS BERJAYA <<<")
                 exit()
             else:
-                print(">>> Pilihan Tidak Valid. Silakan Coba Lagi. <<<")   
+                print()
+                print(">>> Pilihan Tidak Valid. Silakan Coba Lagi. <<<")
+                print()
+                login()   
         except ValueError and KeyboardInterrupt:
             print (">>> Masukan Pilihan yang Sesuai! <<<")
         
