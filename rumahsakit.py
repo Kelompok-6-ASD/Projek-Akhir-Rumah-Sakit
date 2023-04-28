@@ -171,8 +171,6 @@ class LinkedList:
             current_node = current_node.next
         return None
 
-    import math
-
     def cari_pasien(self):
         carii = input("Masukkan ID Pasien yang Ingin di Cari: ").replace(" ", "")
         if not carii.isdigit():
