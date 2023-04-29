@@ -7,6 +7,8 @@
 # Rumah-Sakit
 Kelompok 6 Projek Akhir ASD Rumah Sakit
 
+
+#Deskripsi Program
 Rumah sakit adalah sebuah institusi medis yang menyediakan perawatan kesehatan bagi pasien yang membutuhkan. Sebagai sebuah institusi yang memiliki tugas penting dalam menyelamatkan nyawa pasien, rumah sakit memerlukan pengelolaan data yang efektif dan efisien. Untuk itu, pemrograman mata kuliah algoritma dan struktur data sangatlah penting untuk diterapkan dalam pengelolaan data di rumah sakit.
 	
 Contoh penerapan algoritma dan struktur data di rumah sakit adalah dalam sistem pencatatan medis elektronik (Electronic Medical Record/EMR). EMR adalah sebuah sistem yang digunakan untuk mengelola dan menyimpan data pasien secara digital. EMR menggunakan algoritma untuk mencari data pasien yang terkait dengan penyakit tertentu. EMR juga menggunakan struktur data seperti linked list untuk menyimpan data pasien secara efisien dan mempercepat proses pencarian data.
@@ -15,8 +17,31 @@ Program Python untuk simulasi manajemen pasien pada sebuah rumah sakit dapat dib
 	
 Program yang kami buat ini adalah sebuah program rumah sakit yang berfungsi untuk melakukan login pasien, login admin, dan registrasi pasien, yang dimana didalam menu-menu tersebut nantinya kan ada banyak menu pilihan lain lagi. Penjelasan lebih detail seperti dibawah ini.
 
-STRUKTUR DATA : 
+# STRUKTUR PROJECT : 
+- Sorting : Shell sort adalah salah satu algoritma pengurutan (sorting algorithm) yang digunakan untuk mengurutkan elemen dalam suatu array.
 
+Dalam kode yang diberikan, terdapat fungsi shell_sort yang digunakan untuk mengurutkan elemen dalam suatu linked list. Algoritma shell sort ini mengurutkan elemen berdasarkan nilai ID pasien secara ascending (dari yang terkecil ke yang terbesar).
+
+Pertama, program menentukan panjang linked list dengan menggunakan fungsi get_length(). Selanjutnya, program menentukan nilai gap yang digunakan dalam proses pengurutan. Gap ini awalnya diisi dengan setengah dari panjang linked list, dan kemudian diubah menjadi setengah dari gap sebelumnya dalam setiap iterasi.
+
+- Searching : Jump Search merupakan salah satu strategi dalam algoritma pencarian (searching algorithm). Algoritma ini digunakan untuk mencari nilai tertentu dalam suatu array yang diurutkan. Algoritma Jump Search dilakukan pada suatu linked list yang berisi data pasien. Proses pencarian dimulai dengan menginisialisasi dua pointer yaitu left dan right, dimana left menunjuk ke indeks pertama dari linked list dan right ditentukan dengan menggunakan teknik jump.
+
+Setelah itu, program memeriksa elemen pada indeks right. Jika nilai elemen ini kurang dari nilai yang dicari, maka pointer left dipindahkan ke indeks right dan pointer right diubah menjadi indeks berikutnya dengan teknik jump. Proses ini dilakukan terus-menerus sampai nilai elemen yang ditunjuk oleh pointer right lebih besar atau sama dengan nilai yang dicari.
+
+Setelah menemukan range indeks yang memuat nilai yang dicari, program melakukan iterasi pada seluruh elemen pada range ini untuk mencari elemen yang sama dengan nilai yang dicari. Jika ditemukan, maka program akan menampilkan atribut-atribut dari elemen tersebut. Jika tidak ditemukan, program akan menampilkan pesan kesalahan.
+
+1. Menu utama: tampilan menu yang digunakan untuk mengakses beberapa opsi yang tersedia dalam program. Menu ini bertujuan untuk memberikan kemudahan bagi pengguna untuk memilih opsi yang diinginkan. Pada bagian bawah menu, terdapat beberapa opsi yang dapat dipilih oleh pengguna, yaitu:
+
+- Login Pasien: digunakan oleh pasien untuk melakukan login ke akun mereka pada sistem.
+- Login Admin: digunakan oleh admin untuk melakukan login ke akun mereka pada sistem.
+- Registrasi Pasien Baru: digunakan oleh pasien yang belum memiliki akun pada sistem untuk melakukan registrasi.
+- Keluar: digunakan untuk keluar dari menu atau keluar dari sistem.
+
+Setelah pengguna memilih salah satu opsi yang tersedia, program akan melakukan tindakan sesuai dengan opsi yang dipilih. Misalnya, jika pengguna memilih opsi "Login Pasien", program akan meminta pengguna untuk memasukkan informasi login mereka, yaitu username dan password. Setelah informasi login tersebut dimasukkan, program akan memverifikasi informasi tersebut dan memberikan akses pada pengguna untuk lanjut pada menu program yang selanjutnya.
+
+
+
+#FITUR & FUNGSIONALITAS
 Program dimulai dengan mengimpor beberapa modul dan memuat beberapa variabel yang akan digunakan dalam program. Pada tampilan awal akan tampil menu pilihan seperti Login Pasien, Login Admin, Registrasi Pasien, dan menu untuk keluar, seperti pada gambar dibawah ini.
 	
 ![1](https://user-images.githubusercontent.com/127528115/232368480-555ea636-4841-4256-9580-23ff23677083.jpg)
