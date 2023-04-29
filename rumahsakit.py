@@ -396,7 +396,7 @@ def menu_pasien():
         print("||  1  | Informasi Kamar           ||")
         print("||  2  | Pemesanan                 ||")
         print("||  3  | Apotek                    ||")
-        print("||  4  | Lihat Saldo                ||")
+        print("||  4  | Lihat Saldo               ||")
         print("||  5  | Tambah Saldo              ||")
         print("||  6  | Keluar Menu Pasien        ||")
         print("||  7  | Exit                      ||")
