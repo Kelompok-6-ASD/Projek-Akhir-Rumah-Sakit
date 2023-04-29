@@ -739,8 +739,8 @@ def pasien_login():
 def admin_login():
     while True:
         try:
-            username = input("Masukkan Username Admin: ").strip("\t").strip(" ").replace("\t","")
-            password = input("Masukkan Password Admin: ")
+            username = str.strip(input("Masukkan Username Admin: ").replace (" ",""))
+            password = pwinput.pwinput("Masukkan Password Admin: ").strip("\t").strip(" ").replace("\t","")
             role = 'admin'
             os.system('cls')
             
