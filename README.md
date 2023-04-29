@@ -62,7 +62,7 @@ Dan jika berhasil login (data pasien ditemukan) maka program akan menampilkan pi
 
 ![4](https://user-images.githubusercontent.com/127528115/232368808-91c8ebe7-ba4e-4553-ad42-7d9a49a4635f.jpg)
 
-![5](https://user-images.githubusercontent.com/127528115/232368833-e0534311-c24c-4d29-9b4b-f2b005156475.jpg)
+![asd 6](https://user-images.githubusercontent.com/127528115/235312341-0ef4b7d3-8c0f-4021-a3ad-9d1917db27f2.PNG)
 
 1. Informasi Kamar
 
