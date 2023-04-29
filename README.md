@@ -15,7 +15,7 @@ Contoh penerapan algoritma dan struktur data di rumah sakit adalah dalam sistem 
 	
 Program Python untuk simulasi manajemen pasien pada sebuah rumah sakit dapat dibangun dengan menggunakan struktur data yang sesuai dan algoritma yang efektif. Dalam program tersebut, kita dapat menggunakan kelas sebagai wadah untuk menyimpan data dan metode-metode yang terkait.
 	
-Program yang kami buat ini adalah sebuah program rumah sakit yang berfungsi untuk melakukan login pasien, login admin, dan registrasi pasien, yang dimana didalam menu-menu tersebut nantinya kan ada banyak menu pilihan lain lagi. Penjelasan lebih detail seperti dibawah ini.
+Program yang kami buat ini adalah sebuah program rumah sakit yang berfungsi untuk melakukan login pasien, login admin, dan registrasi pasien, yang dimana didalam menu-menu tersebut nantinya akan ada banyak menu pilihan lain lagi. Penjelasan lebih detail seperti dibawah ini.
 
 # STRUKTUR PROJECT : 
 - Sorting : Shell sort adalah salah satu algoritma pengurutan (sorting algorithm) yang digunakan untuk mengurutkan elemen dalam suatu array.
