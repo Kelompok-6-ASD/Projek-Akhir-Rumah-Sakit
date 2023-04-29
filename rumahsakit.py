@@ -2,13 +2,13 @@ import mysql.connector
 import pwinput
 import math
 from prettytable import PrettyTable
-import os
-os.system("cls")
-import time
-import datetime
+import time, datetime
 import sys
 import re
 from termcolor import colored
+import os
+os.system("cls")
+
 
 # mendefinisikan sebuah Pasien, Method __init__ ini akan menginisialisasi semua atribut dari objek Pasien.
 class Pasien:
@@ -299,6 +299,7 @@ class LinkedList:
             print(">>> ID Pasien yang Anda Masukkan Salah atau Tidak Ada. <<<")
             print()
             return
+        
 ana = LinkedList()
 
 apotek = {'paracetamol': {'stok': 100,'harga': 5000}, 
@@ -399,7 +400,7 @@ def informasi_kamar():
     print()
     while True:
         try:
-            n=int(input("0-KEMBALI\n ->"))
+            n=int(input("0-KEMBALI\n -> "))
             if n==0:
                 os.system('cls')
                 return
@@ -462,8 +463,8 @@ def menu_pasien():
 
         elif ch == "7":
             os.system('cls')
-            sys.exit(">>> Program Telah Selesai. <<<")
-
+            sys.exit(">>> PROGRAM TELAH SELESAI, TERIMAKASIH SAMPAI JUMPA LAGI😊 <<<")
+    
         else:
             print()
             print(">>> Pilihan Tidak Valid. Silakan Coba Lagi. <<<")
@@ -645,8 +646,8 @@ def koneksi():
         time.sleep(3)
         os.system("cls")
         
-    except mysql.Connector.Error as e:
-        print(f"Error: {e}")
+    except mysql.connector.Error as e:
+        print(f"Unconeccted Error: {e}")
     return mydb
 
 # Fungsi registrasi pasien
