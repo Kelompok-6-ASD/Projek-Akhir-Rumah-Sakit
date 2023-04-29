@@ -18,17 +18,36 @@ Program Python untuk simulasi manajemen pasien pada sebuah rumah sakit dapat dib
 Program yang kami buat ini adalah sebuah program rumah sakit yang berfungsi untuk melakukan login pasien, login admin, dan registrasi pasien, yang dimana didalam menu-menu tersebut nantinya akan ada banyak menu pilihan lain lagi. Penjelasan lebih detail seperti dibawah ini.
 
 # STRUKTUR PROJECT : 
-- Sorting : Shell sort adalah salah satu algoritma pengurutan (sorting algorithm) yang digunakan untuk mengurutkan elemen dalam suatu array.
+- Modul-modul yang digunakan, antara lain :
 
-Dalam kode yang diberikan, terdapat fungsi shell_sort yang digunakan untuk mengurutkan elemen dalam suatu linked list. Algoritma shell sort ini mengurutkan elemen berdasarkan nilai ID pasien secara ascending (dari yang terkecil ke yang terbesar).
+mysql.connector: Modul ini digunakan untuk menghubungkan Python dengan database MySQL. 
 
-Pertama, program menentukan panjang linked list dengan menggunakan fungsi get_length(). Selanjutnya, program menentukan nilai gap yang digunakan dalam proses pengurutan. Gap ini awalnya diisi dengan setengah dari panjang linked list, dan kemudian diubah menjadi setengah dari gap sebelumnya dalam setiap iterasi.
+pwinput: Modul ini digunakan untuk mengambil masukan kata sandi dari pengguna secara aman, sehingga sandi tidak akan terlihat saat dimasukkan.
 
-- Searching : Jump Search merupakan salah satu strategi dalam algoritma pencarian (searching algorithm). Algoritma ini digunakan untuk mencari nilai tertentu dalam suatu array yang diurutkan. Algoritma Jump Search dilakukan pada suatu linked list yang berisi data pasien. Proses pencarian dimulai dengan menginisialisasi dua pointer yaitu left dan right, dimana left menunjuk ke indeks pertama dari linked list dan right ditentukan dengan menggunakan teknik jump.
+math: Modul ini menyediakan fungsi-fungsi matematika dasar seperti fungsi trigonometri, logaritma, dan fungsi untuk menghitung akar kuadrat.
 
-Setelah itu, program memeriksa elemen pada indeks right. Jika nilai elemen ini kurang dari nilai yang dicari, maka pointer left dipindahkan ke indeks right dan pointer right diubah menjadi indeks berikutnya dengan teknik jump. Proses ini dilakukan terus-menerus sampai nilai elemen yang ditunjuk oleh pointer right lebih besar atau sama dengan nilai yang dicari.
+prettytable: Modul ini digunakan untuk membuat tabel dengan format yang rapi dan mudah dibaca.
 
-Setelah menemukan range indeks yang memuat nilai yang dicari, program melakukan iterasi pada seluruh elemen pada range ini untuk mencari elemen yang sama dengan nilai yang dicari. Jika ditemukan, maka program akan menampilkan atribut-atribut dari elemen tersebut. Jika tidak ditemukan, program akan menampilkan pesan kesalahan.
+time: Modul ini menyediakan fungsi-fungsi untuk memanipulasi waktu, seperti mengambil waktu saat ini, menunda program, atau menghitung waktu yang diperlukan untuk menjalankan suatu fungsi.
+
+datetime: Modul ini digunakan untuk memanipulasi tanggal dan waktu dalam berbagai format, seperti mengambil waktu saat ini, mengubah format waktu, atau melakukan operasi pada tanggal dan waktu.
+
+sys: Modul ini menyediakan akses ke beberapa variabel dan fungsi sistem yang terkait dengan interpretasi Python, seperti variabel argv, exit(), dan path.
+
+termcolor: Modul ini digunakan untuk menambahkan warna pada output teks pada konsol, sehingga memudahkan pembacaan dan memperindah tampilan output.
+
+os: Modul ini digunakan untuk melakukan operasi pada sistem operasi yang digunakan.
+
+- Class : Class Pasien adalah class yang digunakan untuk mendefinisikan objek Pasien, dengan atribut id_pasien, nama_pasien, umur_pasien, alamat, dan diagnosa. Selain itu, terdapat juga atribut next yang akan digunakan untuk menyimpan referensi ke objek Pasien berikutnya dalam linked list. Class Pasien juga memiliki metode konstruktor __init__, yang digunakan untuk menginisialisasi nilai dari atribut-atribut objek Pasien. Class LinkedList adalah class yang digunakan untuk membuat linked list, yaitu sebuah struktur data yang terdiri dari sejumlah node yang saling terhubung. Pada class ini, terdapat dua atribut, yaitu head dan saldo. Atribut head akan digunakan untuk menyimpan referensi ke node pertama dalam linked list, sedangkan atribut saldo akan digunakan untuk menyimpan nilai saldo awal dari linked list. Class LinkedList juga memiliki metode konstruktor __init__, yang digunakan untuk menginisialisasi nilai dari atribut-atribut objek LinkedList.
+Class Pasien akan digunakan untuk membuat objek-objek Pasien yang akan dimasukkan ke dalam linked list yang dibuat menggunakan class LinkedList. Setiap objek Pasien akan menjadi satu node dalam linked list, dan atribut next dari objek Pasien akan digunakan untuk menyimpan referensi ke objek Pasien berikutnya dalam linked list. Dengan demikian, class Pasien dan LinkedList akan bekerja bersama-sama untuk membentuk struktur data linked list yang digunakan untuk menyimpan objek Pasien.
+
+- Sorting : Shell sort adalah salah satu algoritma pengurutan (sorting algorithm) yang digunakan untuk mengurutkan elemen dalam suatu array. Fungsi shell_sort yang digunakan untuk mengurutkan elemen dalam suatu linked list. 
+
+- Searching : Jump Search merupakan salah satu strategi dalam algoritma pencarian (searching algorithm). Proses pencarian dimulai dengan menginisialisasi dua pointer yaitu left dan right, dimana left menunjuk ke indeks pertama dari linked list dan right ditentukan dengan menggunakan teknik jump.Setelah itu, program memeriksa elemen pada indeks right. Jika nilai elemen ini kurang dari nilai yang dicari, maka pointer left dipindahkan ke indeks right dan pointer right diubah  menjadi indeks berikutnya dengan teknik jump. Proses ini dilakukan terus-menerus sampai nilai elemen yang ditunjuk oleh pointer right lebih besar atau sama dengan nilai yang dicari. Setelah menemukan range indeks yang memuat nilai yang dicari, program melakukan iterasi pada seluruh elemen pada range ini untuk mencari elemen yang sama dengan nilai yang dicari. Jika ditemukan, maka program akan menampilkan atribut-atribut dari elemen tersebut. Jika tidak ditemukan, program akan menampilkan pesan kesalahan.
+
+- Inisialisasi Class :
+ana = LinkedList()
+Ini adalah inisialisasi objek dari kelas LinkedList dengan nama ana. Setelah objek ana dibuat, ana memiliki atribut head dan saldo yang telah diinisialisasi dengan nilai None dan 1000000000, masing-masing.
 
 1. Menu utama: tampilan menu yang digunakan untuk mengakses beberapa opsi yang tersedia dalam program. Menu ini bertujuan untuk memberikan kemudahan bagi pengguna untuk memilih opsi yang diinginkan. Pada bagian bawah menu, terdapat beberapa opsi yang dapat dipilih oleh pengguna, yaitu:
 
@@ -39,9 +58,39 @@ Setelah menemukan range indeks yang memuat nilai yang dicari, program melakukan 
 
 Setelah pengguna memilih salah satu opsi yang tersedia, program akan melakukan tindakan sesuai dengan opsi yang dipilih. Misalnya, jika pengguna memilih opsi "Login Pasien", program akan meminta pengguna untuk memasukkan informasi login mereka, yaitu username dan password. Setelah informasi login tersebut dimasukkan, program akan memverifikasi informasi tersebut dan memberikan akses pada pengguna untuk lanjut pada menu program yang selanjutnya.
 
+2. Menu login
+Fungsi pasien_login() bertanggung jawab untuk melakukan proses login pasien. Pertama-tama, fungsi ini akan meminta input username dan password dari pengguna. Kemudian, fungsi ini akan melakukan query ke database untuk memeriksa apakah username dan password yang dimasukkan sesuai dengan data yang ada di database. Jika username dan password ditemukan, maka pengguna akan diberikan akses ke menu_pasien(). Jika tidak ditemukan, maka pengguna akan diminta untuk memasukkan kembali username dan password yang benar.
+
+Fungsi admin_login() juga melakukan proses login, namun untuk akun admin. Fungsi ini meminta input username dan password dari pengguna dan melakukan query ke database untuk memeriksa apakah data tersebut valid. Jika ditemukan akun admin yang sesuai, pengguna akan diberikan akses ke menu_admin(). Jika tidak ditemukan, pengguna akan diminta untuk memasukkan kembali username dan password yang benar.
+
+3. Menu Register
+Fungsi regis di atas merupakan sebuah fungsi yang bertujuan untuk melakukan registrasi user. Fungsi ini akan meminta input dari user berupa username dan password yang akan digunakan untuk login di aplikasi.
 
 
-#FITUR & FUNGSIONALITAS
+# FITUR & FUNGSIONALITAS
+- Fitur yang pertama yaitu terdapat pada awal program, menu utama disini memiliki ke 3 fungsi yang pertama adalah pasien login, kemudian admin login, dan register
+
+- Berikut ini fitur-fitur yang ada pada menu admin :
+1.  Registrasi pasien/Create: Admin melalukan registrasi untuk pasien, fungsi ini digunakan untuk menambahkan data baru ke dalam database atau sumber daya lainnya. Pada kode program yang diberikan, fungsi ini terletak pada pilihan 1 dari menu admin, dimana data pasien baru ditambahkan ke dalam sistem.
+2.  Read: Fungsi ini terletak pada pilihan 2 dari menu admin, dimana data pasien yang sudah tersimpan ditampilkan.
+3.  Update: fungsi ini terletak pada pilihan 3 dari menu admin, dimana data pasien yang ingin diupdate dipilih dan kemudian data tersebut diubah dengan data baru.
+4.  Delete: Fungsi ini terletak pada pilihan 4 dari menu admin, dimana data pasien yang ingin dihapus dipilih dan kemudian data tersebut dihapus dari sistem.
+5.  Sorting : Melakukan sorting data pasien menggunakan metode shell sort. Algoritma shell sort ini mengurutkan elemen berdasarkan nilai ID pasien secara ascending (dari yang terkecil ke yang terbesar). Pertama, program menentukan panjang linked list dengan menggunakan fungsi get_length(). Selanjutnya, program menentukan nilai gap yang digunakan dalam proses pengurutan. Gap ini awalnya diisi dengan setengah dari panjang linked list, dan kemudian diubah menjadi setengah dari gap sebelumnya dalam setiap iterasi.
+6.  Searching : Algoritma Jump Search dilakukan pada suatu linked list yang berisi data pasien.
+7.  Keluar menu admin : Untuk keluar dari menu admin
+8.  Exit : Untuk keluar dari sistem
+
+- Berikut ini fitur-fitur yang ada pada menu Pasien :
+1.  Informasi Kamar: Opsi ini memungkinkan pengguna untuk melihat informasi kamar yang ada pada rumah sakit.
+2.  Pemesanan: Opsi ini memungkinkan pengguna untuk melakukan pemesanan kamar.
+3.  Apotek: Opsi ini memungkinkan pasien untuk membeli obat yang tersedia di apotek.
+4.  Liat Saldo: Opsi ini memungkinkan pasien untuk melihat saldo yang tersisa.
+5.  Tambah Saldo: Opsi ini memungkinkan pengguna untuk menambah saldo yang dimiliki pasien agar dapat melakukan pembayaran untuk layanan atau produk kesehatan yang digunakan.
+6.  Keluar Menu Pasien: Opsi ini memungkinkan pengguna untuk kembali menu sebelumnya dalam program.
+7.  Exit: Opsi ini memungkinkan pengguna untuk keluar dari program.
+
+
+# Cara Penggunaan Beserta Outputnya
 Program dimulai dengan mengimpor beberapa modul dan memuat beberapa variabel yang akan digunakan dalam program. Pada tampilan awal akan tampil menu pilihan seperti Login Pasien, Login Admin, Registrasi Pasien, dan menu untuk keluar, seperti pada gambar dibawah ini.
 	
 ![asd 12](https://user-images.githubusercontent.com/127528115/235316313-d1bd53aa-799d-4db0-a462-7437b2aa851b.PNG)
