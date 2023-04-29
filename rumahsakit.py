@@ -130,6 +130,7 @@ class LinkedList:
     def cari1(self,index):
         return self.cari_pasien(index)
     
+    # mengkonversi data dari Linked List ke dalam bentuk array.
     def to_array(self):
         array = []
         current_node = self.head
@@ -137,6 +138,8 @@ class LinkedList:
             array.append(current_node.id_pasien)
             current_node = current_node.next
         return array
+    
+    # mendapatkan node pada index tertentu di dalam Linked List.
     def getindex(self, index):
         current_node = self.head
         current_index = 0
@@ -148,6 +151,7 @@ class LinkedList:
             current_node = current_node.next
             current_index += 1
 
+    # mendapatkan node dengan id_pasien tertentu di dalam Linked List.
     def get_id(self, id_pasien):
         current_node = self.head
         current_id_pasien = id_pasien
@@ -159,6 +163,7 @@ class LinkedList:
             current_node = current_node.next
             current_id_pasien = id_pasien
 
+    # mendapatkan jumlah node yang ada di dalam Linked List.
     def get_length(self):
         current_node = self.head
         count = 0
@@ -167,6 +172,7 @@ class LinkedList:
             current_node = current_node.next
         return count
 
+    # mendapatkan node pada index tertentu di dalam Linked List.
     def get_node_at_index(self, index):
         current_node = self.head
         count = 0
@@ -177,6 +183,7 @@ class LinkedList:
             current_node = current_node.next
         return None
 
+    # mencari pasien dengan id_pasien tertentu di dalam Linked List. (jump search)
     def cari_pasien(self):
         carii = input("Masukkan ID pasien yang ingin di cari: ").replace (" ","")
         print()
@@ -216,6 +223,7 @@ class LinkedList:
             print()
             return
         
+    # mencari pasien dengan id_pasien tertentu di dalam Linked List
     def cari_pasien_regisAdmin(self, id_pasien):
         current = self.head
         while current is not None:
@@ -224,7 +232,7 @@ class LinkedList:
             current = current.next
         return None
 
-
+    # memesan kamar pasien di rumah sakit
     def pesan_kamar(self):
         table = PrettyTable()
         table.field_names = ["No.", "Jenis Kamar", "Deskripsi", "Harga per hari"]
@@ -299,6 +307,7 @@ apotek = {'paracetamol': {'stok': 100,'harga': 5000},
             'ambroxol': {'stok':100,'harga': 25000},
             'captopril': {'stok':100,'harga': 30000}}
 
+# menambah stok ketersediaan obat
 def tambah_obat(apotek, nama_obat, harga, stok):
     if nama_obat in apotek:
         print(f"Obat {nama_obat} Sudah Tersedia.")
@@ -306,6 +315,7 @@ def tambah_obat(apotek, nama_obat, harga, stok):
         apotek[nama_obat] = {'Harga': harga, 'Stok': stok}
         print(f"Obat {nama_obat} Berhasil Ditambahkan dengan Harga {harga} dan Stok {stok}.")
 
+# menampilkan tampilan obat yang tersedia
 def tampilan_obat(apotek):
     table = PrettyTable()
     table.field_names = ["Obat", "Harga", "Stok"]
@@ -318,6 +328,7 @@ def tampilan_obat(apotek):
     print(table)
     print()
 
+# membeli obzt yang tersedia di apotek
 def beli_obat(apotek):
     while True:
         try:
@@ -359,6 +370,7 @@ def beli_obat(apotek):
         print(f"Maaf, Obat {nama_obat} Tidak Tersedia.")
         return False
 
+# informasi kamar rumah sakit
 def informasi_kamar():
     print("    ---------------------------  ROOMS INFO Hospital  -----------------------------    ")
     print("")
@@ -398,6 +410,7 @@ def informasi_kamar():
             print(">>> Inputan Tidak Valid. Masukkan Angka 0 untuk Kembali. <<<") 
             print()
 
+# tampilan menu pasien
 def menu_pasien():
     while True:
         print("|===================================|")
@@ -456,6 +469,7 @@ def menu_pasien():
             print(">>> Pilihan Tidak Valid. Silakan Coba Lagi. <<<")
             print()
 
+# tampilan menu admin
 def menu_admin():
     while True:
         print("|====================================================|")
@@ -615,7 +629,6 @@ def menu_admin():
             print(">>> Pilihan Tidak Valid. Silakan Coba Lagi. <<<")
             print()
         
-
 # Koneksi ke database
 def koneksi():
     mydb = None
@@ -637,8 +650,6 @@ def koneksi():
     return mydb
 
 # Fungsi registrasi pasien
-import re
-
 def regis(mydb):
     cursor = mydb.cursor()
 
@@ -686,8 +697,6 @@ def regis(mydb):
     print()
     login()
     return
-
-
 
 # Fungsi login pasien   
 def pasien_login():
@@ -794,7 +803,8 @@ def login():
     print("|====| 4.| Keluar                 |")
     print("|=================================|")
     print()   
-    
+
+# opsi pilihan menu    
 def opsional():
     while True:
         try:               
