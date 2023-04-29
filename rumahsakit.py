@@ -275,9 +275,7 @@ class LinkedList:
                 print("============================================================")
                 print()
                 return ana.saldo
-                
-                
-            
+                         
             daftar_pasien = daftar_pasien.next
         if not found:
             print(">>> ID Pasien yang Anda Masukkan Salah atau Tidak Ada. <<<")
@@ -522,7 +520,6 @@ def menu_admin():
                     menu_admin()
                     break
 
-
         elif tanya == "5":
             os.system('cls')
             ana.shell_sort()
@@ -548,7 +545,6 @@ def menu_admin():
             print(">>> Pilihan Tidak Valid. Silakan Coba Lagi. <<<")
             print()
         
-
 
 # Koneksi ke database
 def koneksi():
@@ -626,7 +622,6 @@ def pasien_login():
         print(">>> Maaf, Terjadi Kesalahan Pada Tipe Data yang Anda Masukkan. <<<")
         print()
         menu_pasien()
-
     
 # Fungsi login admin
 def admin_login():
