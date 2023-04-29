@@ -7,6 +7,7 @@ os.system("cls")
 import time
 import datetime
 import sys
+import re
 from termcolor import colored
 
 # mendefinisikan sebuah Pasien, Method __init__ ini akan menginisialisasi semua atribut dari objek Pasien.
@@ -125,6 +126,7 @@ class LinkedList:
                 self.get_node_at_index(y).diagnosa = temp_diagnosa
             gap //= 2
 
+    # Buat return fungsi cari_pasien
     def cari1(self,index):
         return self.cari_pasien(index)
     
@@ -213,6 +215,14 @@ class LinkedList:
             print(">>> ID Pasien yang Anda Masukkan Salah atau Tidak Ada. <<<")
             print()
             return
+        
+    def cari_pasien_regisAdmin(self, id_pasien):
+        current = self.head
+        while current is not None:
+            if current.id_pasien == id_pasien:
+                return current
+            current = current.next
+        return None
 
 
     def pesan_kamar(self):
@@ -396,7 +406,7 @@ def menu_pasien():
         print("||  1  | Informasi Kamar           ||")
         print("||  2  | Pemesanan                 ||")
         print("||  3  | Apotek                    ||")
-        print("||  4  | Lihat Saldo               ||")
+        print("||  4  | Liat Saldo                ||")
         print("||  5  | Tambah Saldo              ||")
         print("||  6  | Keluar Menu Pasien        ||")
         print("||  7  | Exit                      ||")
@@ -462,17 +472,77 @@ def menu_admin():
         print("|====================================================|")
         print()
         tanya = input("Inputkan Pilihan Anda : ")
+
         if tanya == "1":
             os.system('cls')
-            id_pasien = input("Masukkan Id Pasien: ")
-            nama_pasien = input("Masukkan Nama Pasien: ")
-            umur_pasien = input("Masukkan Umur Pasien: ")
-            alamat = input("Masukkan Alamat Pasien: ")
-            diagnosa = input("Masukkan Penyakit yang di Diagnosa: ")
+            while True:
+                id_pasien = input("Masukkan Id Pasien (maksimal 3 angka): ")
+                print()
+                # memeriksa apakah ID pasien sudah terdaftar atau belum
+                if ana.cari_pasien_regisAdmin(id_pasien) is not None:
+                    print(f">>> ID pasien {id_pasien} sudah terdaftar. <<<")
+                    print()
+                    menu_admin()
+                elif len(id_pasien) > 3:
+                    print(">>> ID Pasien Tidak Boleh Lebih dari 3 Angka. <<<")
+                    print()
+                    menu_admin()
+                elif not re.match("^[0-9]{3}$", id_pasien):
+                    print(">>> ID Pasien Harus Berupa 3 Angka. <<<")
+                    print()
+                    menu_admin()
+                elif re.search("[\s,.!]", id_pasien):
+                    print(">>> ID Pasien Tidak Boleh Mengandung Spasi, Titik, Koma, atau Tanda Seru. <<<")
+                    print()
+                    menu_admin()
+                else:
+                    break
+            
+            while True:
+                nama_pasien = input("Masukkan Nama Pasien: ")
+                if not re.match("^[a-zA-Z ]+$", nama_pasien):
+                    print()
+                    print(">>> Nama Pasien Harus Berupa Huruf. <<<")
+                    print()
+                    menu_admin()
+                else:
+                    break
+            
+            while True:
+                umur_pasien = input("Masukkan Umur Pasien: ")
+                if not re.match("^[0-9]+$", umur_pasien):
+                    print()
+                    print(">>> Umur Pasien Harus Berupa Angka. <<<")
+                    print()
+                    menu_admin()
+                else:
+                    break
+            
+            while True:
+                alamat = input("Masukkan Alamat Pasien: ")
+                if not re.match("^[a-zA-Z0-9 ]+$", alamat):
+                    print()
+                    print(">>> Alamat Pasien Harus Berupa Huruf dan Angka. <<<")
+                    print()
+                    menu_admin()
+                else:
+                    break
+            
+            while True:
+                diagnosa = input("Masukkan Penyakit yang di Diagnosa: ")
+                if not re.match("^[a-zA-Z ]+$", diagnosa):
+                    print()
+                    print(">>> Penyakit Harus Berupa Huruf. <<<")
+                    print()
+                    menu_admin()
+                else:
+                    break
+
             ana.tambah_pasien(id_pasien, nama_pasien, umur_pasien, alamat, diagnosa)
             print()
             print(">>> Data Pasien Berhasil di Tambahkan. <<<")
             print()
+
 
         elif tanya == "2":
             os.system('cls')
@@ -567,24 +637,57 @@ def koneksi():
     return mydb
 
 # Fungsi registrasi pasien
+import re
+
 def regis(mydb):
     cursor = mydb.cursor()
-    username =str.strip(input("Masukkan Username Anda: ").strip("\t").strip(" ").replace("\t",""))
-    password =str.strip(pwinput.pwinput("Masukkan Password Anda: ").replace (" ",""))
+
+    while True:
+        username = input("Masukkan Username Anda (hanya huruf): ").strip().lower()
+        if not re.match("^[a-zA-Z]+$", username):
+            print()
+            print(">>> Username Hanya Boleh Menggunakan Huruf! <<<")
+            print()
+            login()
+            return
+        else:
+            break
+
+    while True:
+        password = input("Masukkan Password Anda (hanya angka): ").strip()
+        if not re.match("^[0-9]+$", password):
+            print()
+            print(">>> Password Hanya Boleh Menggunakan Angka! <<<")
+            print()
+            login()
+            return
+        else:
+            break
+
     role = "pasien"
 
     # Query untuk memeriksa keberadaan username dan password di tabel user
-    # cursor = mydb.cursor()
     query = "INSERT INTO login (username, password, role) VALUES (%s, %s, %s)"
     values = (username, password, role)
-    cursor.execute(query, values)
-    mydb.commit()
-    print()
+
+    try:
+        cursor.execute(query, values)
+        mydb.commit()
+    except Exception as e:
+        print()
+        print(">>> Terjadi Kesalahan: ", e)
+        mydb.rollback()
+        login()
+        return
 
     # Jika ditemukan user dengan username dan password yang sesuai
+    print()
     print(">>> Registrasi Berhasil. Anda Dapat Login Sebagai Pasien! <<<")
     print()
     login()
+    return
+
+
 
 # Fungsi login pasien   
 def pasien_login():
@@ -671,11 +774,11 @@ mydb = koneksi()
 
 # Main program
 def login():
-    ana.tambah_pasien("111", "jovi", 18, "kubar", "maag")
+    ana.tambah_pasien("111", "jovi", 18, "kubar", "mag")
     ana.tambah_pasien("333", "fina", 19, "samarinda", "tifus")
     ana.tambah_pasien("222", "aufa", 19, "balikpapan", "demam")
     ana.tambah_pasien("444","young", 20, "jakarta", "dbd")
-    ana.tambah_pasien("555", "alya", 21, "tengarong", "maag")
+    ana.tambah_pasien("555", "alya", 21, "tengarong", "mag")
     
     print("|=================================|")
     print("|   SELAMAT DATANG DI MENU LOGIN  |")
