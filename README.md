@@ -68,9 +68,7 @@ Dan jika berhasil login (data pasien ditemukan) maka program akan menampilkan pi
 
 	Sesuai namanya, pada menu ini program akan menampilkan informasi kamar yang tersdia pada Rumah Sakit Berjaya. Jika ingin keluar dari ini, pengguna dapat mengklik tombol “0” dan enter, dan program akan kembali ke menu sebelumnya.
 
-![6](https://user-images.githubusercontent.com/127528115/232368881-a08a73e8-bfcc-4342-a370-aaff1e4c1091.jpg)
-
-![7](https://user-images.githubusercontent.com/127528115/232368937-dec856d7-b117-46d0-af3a-369f6922bbc9.jpg)
+![asd 7](https://user-images.githubusercontent.com/127528115/235312475-c6030865-dbdc-46e8-a846-a1fd49d2d725.PNG)
 
 2. Pemesanan
 
