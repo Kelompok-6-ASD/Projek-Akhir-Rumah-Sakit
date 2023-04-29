@@ -50,7 +50,7 @@ Program dimulai dengan mengimpor beberapa modul dan memuat beberapa variabel yan
 
 Pada menu ini user akan diminta untuk menginputkan username beserta password untuk login pasien nantinya. Setelah itu program akan kembali ke menu sebelumnya.
 
-![2](https://user-images.githubusercontent.com/127528115/232368671-e99d5045-9742-478f-956a-d3144364cb20.jpg)
+![asd 14](https://user-images.githubusercontent.com/127528115/235316528-a6af9cef-71a8-4aa8-87da-bc08a23becaf.PNG)
 
 (2). Login Pasien
 
