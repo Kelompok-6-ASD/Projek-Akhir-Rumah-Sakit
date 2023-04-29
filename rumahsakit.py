@@ -671,11 +671,11 @@ mydb = koneksi()
 
 # Main program
 def login():
-    ana.tambah_pasien("111", "jovi", 18, "kubar", "mag")
+    ana.tambah_pasien("111", "jovi", 18, "kubar", "maag")
     ana.tambah_pasien("333", "fina", 19, "samarinda", "tifus")
     ana.tambah_pasien("222", "aufa", 19, "balikpapan", "demam")
     ana.tambah_pasien("444","young", 20, "jakarta", "dbd")
-    ana.tambah_pasien("555", "alya", 21, "tengarong", "mag")
+    ana.tambah_pasien("555", "alya", 21, "tengarong", "maag")
     
     print("|=================================|")
     print("|   SELAMAT DATANG DI MENU LOGIN  |")
