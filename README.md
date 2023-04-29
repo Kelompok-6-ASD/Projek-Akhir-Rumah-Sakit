@@ -102,7 +102,9 @@ Dan jika berhasil login (data pasien ditemukan) maka program akan menampilkan pi
 
 Sama seperti menu login pasien, pada menu login admin user juga akan diminta untuk menginputkan username dan password sebagai admin.
 
-![12](https://user-images.githubusercontent.com/127528115/232369334-0e62b537-e2e6-4145-8460-c44739b872fe.jpg)
+![asd 11](https://user-images.githubusercontent.com/127528115/235316139-3e7a4ad5-780c-4471-a16f-8916b96b3a7c.PNG)
+
+![Screenshot (191)](https://user-images.githubusercontent.com/127528115/235316174-007dc400-ec08-4fc6-90d7-d3e498c808c9.png)
 
 Lalu, program akan menampilkan menu pilihan lagi seperti registrasi pasien, read data pemeriksaan pasien, update data pasien, delete data pasien, sorting data pasien, searching data pasien, dll. Dan user akan diminta menginputkan menu apa yang ingin dijalankan.
 
