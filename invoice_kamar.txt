@@ -1,0 +1,11 @@
+                                      RUMAH SAKIT BERJAYA                                      
+
+                                            INVOICE                                            
+
+Nama Kamar                     Harga/Hari           Jumlah Hari          Total Harga         
+----------------------------------------------------------------------------------------------------
+      Intensive Care Unit (ICU)        Rp.350,000              1                    Rp.350,000             
+----------------------------------------------------------------------------------------------------
+Total Pembayaran                                             Rp.350,000        
+
+>>> Terima Kasih Telah Memesan Kamar di Rumah Sakit Berjaya. <<<
