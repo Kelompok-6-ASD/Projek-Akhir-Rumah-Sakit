@@ -84,7 +84,7 @@ Dan jika berhasil login (data pasien ditemukan) maka program akan menampilkan pi
 
 	Dalam menu ini, program akan memunculkan daftar obat yang tersedia pada rumah sakit tersebut. Setelah itu, user diminta untuk menginputkan nama serta jumlah obat yang ingin dibeli. Lalu akan muncul total harga dari obat yang akan dibeli.
 
-![11](https://user-images.githubusercontent.com/127528115/232369198-4520bc0f-10b7-4c0c-9c6b-aa090037d275.jpg)
+![asd 3](https://user-images.githubusercontent.com/127528115/235312069-e29e80f1-2021-4871-8966-202920f0d016.PNG)
 
 4. Liat Saldo
 
