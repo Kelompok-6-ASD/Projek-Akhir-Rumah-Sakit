@@ -44,7 +44,7 @@ Setelah pengguna memilih salah satu opsi yang tersedia, program akan melakukan t
 #FITUR & FUNGSIONALITAS
 Program dimulai dengan mengimpor beberapa modul dan memuat beberapa variabel yang akan digunakan dalam program. Pada tampilan awal akan tampil menu pilihan seperti Login Pasien, Login Admin, Registrasi Pasien, dan menu untuk keluar, seperti pada gambar dibawah ini.
 	
-![1](https://user-images.githubusercontent.com/127528115/232368480-555ea636-4841-4256-9580-23ff23677083.jpg)
+![asd 12](https://user-images.githubusercontent.com/127528115/235316313-d1bd53aa-799d-4db0-a462-7437b2aa851b.PNG)
 
 (1). Registrasi Pasien
 
@@ -100,7 +100,7 @@ Dan jika berhasil login (data pasien ditemukan) maka program akan menampilkan pi
 
 (3). Login Admin
 
-Sama seperti menu login pasien, pada menu login admin user juga akan diminta untuk menginputkan username dan password sebagai admin.
+Sama seperti menu login pasien, pada menu login admin user juga akan diminta untuk menginputkan username dan password (password dilindungi sehingga hanya akan tampil simbol bintang saja) sebagai admin.
 
 ![asd 11](https://user-images.githubusercontent.com/127528115/235316139-3e7a4ad5-780c-4471-a16f-8916b96b3a7c.PNG)
 
