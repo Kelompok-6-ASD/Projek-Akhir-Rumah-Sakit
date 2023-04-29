@@ -60,7 +60,9 @@ class LinkedList:
             index.umur_pasien = umur_pasien
             index.alamat = alamat
             index.diagnosa = diagnosa
+            print()
             print(">>> Data Pasien Berhasil di Update. <<<")
+            print()
         else:
             print(">>> Data Pasien Tidak Ditemukan. <<<")
 
@@ -91,7 +93,9 @@ class LinkedList:
         
         prev.next = current.next
         current.next = None
+        print()
         print(">>> Data Pasien Berhasil di Hapus. <<<")
+        print()
 
     # mengurutkan elemen berdasarkan nilai ID pasien secara ascending.
     def shell_sort(self):
@@ -172,31 +176,44 @@ class LinkedList:
         return None
 
     def cari_pasien(self):
-        carii = input("Masukkan ID Pasien yang Ingin di Cari: ").replace(" ", "")
+        carii = input("Masukkan ID pasien yang ingin di cari: ").replace (" ","")
+        print()
         if not carii.isdigit():
+            print(">>> ID Pasien Harus Berupa Angka. <<<")
             print()
-            print(">>> ID Pasien Harus Berupa Angka! <<<")
+            return
+        
+        daftar_pasien = self.head
+        found = False
+        while daftar_pasien is not None:
+            # Konversi data Linked List ke array
+            arr = self.to_array()
+            n = len(arr)
+            jump = int(math.sqrt(n))
+            left, right = 0, 0
+            # Melakukan jump search pada array
+            while right < n and int(arr[right]) < int(carii):
+                left = right
+                right = min(n - 1, right + jump)
+            for i in range(left, right + 1):
+                if arr[i] == carii:
+                    node = self.getindex(i)
+                    print(f"Data Pasien Ditemukan pada index ke-{i+0}")
+                    print(f"ID Pasien: {node.id_pasien}")
+                    print(f"Nama Pasien: {node.nama_pasien}")
+                    print(f"Umur Pasien: {node.umur_pasien}")
+                    print(f"Alamat Pasien: {node.alamat}")
+                    print(f"Diagnosa Pasien: {node.diagnosa}")
+                    print()
+                    found = True
+                    return
+
+            daftar_pasien = daftar_pasien.next
+        if not found:
+            print(">>> ID Pasien yang Anda Masukkan Salah atau Tidak Ada. <<<")
             print()
             return
 
-        node = self.head
-        found = False
-        while node is not None:
-            if node.id_pasien == int(carii):
-                found = True
-                print(f"Data Pasien Ditemukan pada Index Ke-{self.index(node)}")
-                print(f"ID Pasien: {node.id_pasien}")
-                print(f"Nama Pasien: {node.nama_pasien}")
-                print(f"Umur Pasien: {node.umur_pasien}")
-                print(f"Alamat Pasien: {node.alamat}")
-                print(f"Diagnosa Pasien: {node.diagnosa}")
-                break
-            node = node.next
-
-        if not found:
-            print()
-            print(">>> ID pasien yang Anda Masukkan Salah atau Tidak Ada. <<<")
-            print()
 
     def pesan_kamar(self):
         table = PrettyTable()
@@ -220,6 +237,7 @@ class LinkedList:
                     print(">>> Nomor Kamar Tidak Valid. <<<")
                     return
                 days = int(input("Masukkan Jumlah Hari Menginap: "))
+                os.system('cls')
                 if days < 1:
                     print(">>> Jumlah Hari Tidak Valid. <<<")
                     return
@@ -255,7 +273,10 @@ class LinkedList:
                 print("============================================================")
                 print(         f"Saldo Anda sekarang adalah Rp.{ana.saldo:,}       ")
                 print("============================================================")
+                print()
                 return ana.saldo
+                
+                
             
             daftar_pasien = daftar_pasien.next
         if not found:
@@ -297,16 +318,18 @@ def beli_obat(apotek):
             break
         except ValueError:
             print()
-            print(">>> Input Tidak Valid. Silahkan Masukkan Angka untuk Jumlah Obat! <<<")
+            print(">>> Input Tidak Valid. Silahkan Masukkan Angka untuk Jumlah Obat. <<<")
             print()
+            menu_pasien()
+            break
 
     if nama_obat in apotek:
-        if apotek[nama_obat]['Stok'] >= jumlah:
-            total_harga = apotek[nama_obat]['Harga'] * jumlah
+        if apotek[nama_obat]['stok'] >= jumlah:
+            total_harga = apotek[nama_obat]['harga'] * jumlah
             if total_harga > ana.saldo:
                 print(">>> Maaf, Saldo Anda Tidak Cukup. <<<")
                 return False
-            apotek[nama_obat]['Stok'] -= jumlah
+            apotek[nama_obat]['stok'] -= jumlah
             ana.saldo -= total_harga
             print(f"Anda Telah Membeli {jumlah} {nama_obat} dengan Total Harga {total_harga}.")
             print(f"Sisa Saldo Anda: {ana.saldo}")
@@ -322,14 +345,10 @@ def beli_obat(apotek):
                 f.write ("\n=====================================")
             return True
         else:
-            print()
             print(f"Maaf, Stok Obat {nama_obat} Tidak Cukup.")
-            print()
             return False
     else:
-        print()
         print(f"Maaf, Obat {nama_obat} Tidak Tersedia.")
-        print()
         return False
 
 def informasi_kamar():
@@ -389,35 +408,39 @@ def menu_pasien():
         ch = (input("Pilih Menu yang Diinginkan: ")).replace (" ","")
 
         if ch == "1":
+            os.system('cls')
             informasi_kamar()
 
         elif ch == "2":
+            os.system('cls')
             ana.pesan_kamar()
 
         elif ch == "3":
+            os.system('cls')
             tampilan_obat(apotek)
             beli_obat(apotek)
 
         elif ch == "4":
-            print()
+            os.system('cls')
             print("=======================")
             print("Saldo Anda:",ana.saldo)
             print("=======================")
             print()
 
         elif ch == "5":
+            os.system('cls')
             print()
             inputsaldo = int(input("Tambah Saldo: "))
             ana.saldo += inputsaldo
             print()
 
         elif ch == "6":
-            print()
+            os.system('cls')
             login()
             break
 
         elif ch == "7":
-            print()
+            os.system('cls')
             sys.exit(">>> Program Telah Selesai. <<<")
 
         else:
@@ -442,6 +465,7 @@ def menu_admin():
         print()
         tanya = input("Inputkan Pilihan Anda : ")
         if tanya == "1":
+            os.system('cls')
             id_pasien = input("Masukkan Id Pasien: ")
             nama_pasien = input("Masukkan Nama Pasien: ")
             umur_pasien = input("Masukkan Umur Pasien: ")
@@ -453,12 +477,15 @@ def menu_admin():
             print()
 
         elif tanya == "2":
+            os.system('cls')
             ana.tampilan_pasien()
             print()
 
         elif tanya == "3":
+            os.system('cls')
             ana.tampilan_pasien()
             index = int(input("Masukkan Nomor Pasien yang Ingin Anda Update: "))
+            print()
             if index > 0 and index <= ana.get_length():
                 jj = ana.getindex(index -1)
                 if jj:
@@ -472,38 +499,55 @@ def menu_admin():
                     print(">>> Pasien yang Anda Cari Tidak Ditemukan. <<<")
 
         elif tanya == "4":
+            os.system('cls')
             ana.tampilan_pasien()
-            index = int(input("Masukan Nomor Pasien Jika ingin Menghapus Data Pasien: "))
-            np = ana.getindex(index -1)
-            if np:
-                ana.hapus_pasien(index)
-            else:
-                print()
-                print(f"Data Pasien dengan Nomor {index} Tidak Ditemukan")
-                print()
+            while True:
+                index_input = input("Masukan Nomor Pasien Jika ingin Menghapus Data Pasien: ")
+                if index_input.isdigit():
+                    index = int(index_input)
+                    np = ana.getindex(index - 1)
+                    if np:
+                        ana.hapus_pasien(index)
+                        break
+                    else:
+                        print()
+                        print(f"Data Pasien dengan Nomor {index} Tidak Ditemukan")
+                        print()
+                        menu_admin()
+                        break
+                else:
+                    print()
+                    print(">>> Input Harus Berupa Angka. Silakan Coba Lagi. <<<")
+                    print()
+                    menu_admin()
+                    break
+
 
         elif tanya == "5":
+            os.system('cls')
             ana.shell_sort()
             ana.tampilan_pasien()
 
         elif tanya == "6":
+            os.system('cls')
             ana.shell_sort()
             ana.tampilan_pasien()
             ana.cari_pasien()
 
         elif tanya == "7":
-            print()
+            os.system('cls')
             login()
             break
 
         elif tanya == "8":
-            print()
+            os.system('cls')
             sys.exit(">>> Program Telah Selesai. <<<")
 
         else:
             print()
             print(">>> Pilihan Tidak Valid. Silakan Coba Lagi. <<<")
             print()
+        
 
 
 # Koneksi ke database
@@ -552,7 +596,7 @@ def pasien_login():
         username = str.strip(input("Masukkan Username Pasien: ").replace (" ",""))
         password = pwinput.pwinput("Masukkan Password Pasien: ").strip("\t").strip(" ").replace("\t","")
         role = 'pasien'
-        print()
+        os.system('cls')
 
         # Query untuk memeriksa keberadaan username dan password di tabel user
         cursor = mydb.cursor()
@@ -591,6 +635,7 @@ def admin_login():
             username = input("Masukkan Username Admin: ").strip("\t").strip(" ").replace("\t","")
             password = input("Masukkan Password Admin: ")
             role = 'admin'
+            os.system('cls')
             
             # Query untuk memeriksa keberadaan username dan password di tabel admin
             cursor = mydb.cursor()
@@ -622,10 +667,9 @@ def admin_login():
             print()
             print(">>> Input Tidak Valid. Silakan Coba Lagi. <<<")
             print()
-            admin_login()
+            menu_admin()
             break
             
-
 
 mydb = koneksi()
 
