@@ -76,11 +76,9 @@ Dan jika berhasil login (data pasien ditemukan) maka program akan menampilkan pi
 
 	Dalam menu ini, user akan diarahkan untuk memesan kamar. Kemudian user diminta menginputkan id pasien yang telah terdaftar, nomor jenis kamar yang diinginkan dan jumlah hari untuk menginap. Setelah itu akan tampil sebuah invoice tentang informasi pemesanan kamar.
 
-![8](https://user-images.githubusercontent.com/127528115/232369043-05554c3b-a42a-4802-afa9-b13874a05647.jpg)
+![asd 1](https://user-images.githubusercontent.com/127528115/235311934-7e56cebf-2c67-4071-919a-a3b1315d175e.PNG)
 
-![9](https://user-images.githubusercontent.com/127528115/232369082-9b249768-0c61-430f-8d09-e432ce7679a7.jpg)
-
-![10](https://user-images.githubusercontent.com/127528115/232369112-9b2765a1-3052-4f1d-aac0-66e204b6d237.jpg)
+![asd 2](https://user-images.githubusercontent.com/127528115/235311958-051ae3d7-eec2-4ff6-948d-2e93da814536.PNG)
 
 3. Apotek
 
